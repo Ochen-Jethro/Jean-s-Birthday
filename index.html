@@ -28,6 +28,7 @@
     .font-serif-title { font-family: 'Cinzel', serif; }
     .font-script { font-family: 'Great Vibes', cursive; }
     
+    /* Full portrait viewport slide section */
     .slide-section {
       scroll-snap-align: start;
       scroll-snap-stop: always;
@@ -35,6 +36,7 @@
       height: 100dvh;
     }
 
+    /* Scroll fade-in transition effect */
     .fade-in-element {
       opacity: 0;
       transform: translateY(24px);
@@ -46,28 +48,25 @@
       transform: translateY(0);
     }
 
+    /* Smooth transition for opening envelope */
     .envelope-wrapper { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease; }
     .envelope-open { transform: translateY(-100vh); opacity: 0; pointer-events: none; }
-
-    /* Real flower decorations */
-    .flower-deco {
-      position: absolute;
-      pointer-events: none;
-      z-index: 1;
-      object-fit: contain;
-    }
   </style>
 </head>
 <body class="overflow-x-hidden select-none">
 
-  <!-- 1. OPENING SCREEN -->
+  <!-- ========================================== -->
+  <!-- 1. OPENING SCREEN (ENVELOPE OVERLAY) -->
+  <!-- ========================================== -->
   <div id="opening-screen" class="envelope-wrapper fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#ECE3D9] p-4 text-center">
     <div class="mb-6 flex flex-col items-center">
       <span class="text-[#B89759] text-xs font-serif-title tracking-widest uppercase">✦ ✦</span>
       <h1 class="font-serif-title text-4xl text-[#B89759] tracking-widest mt-1">JC</h1>
     </div>
 
+    <!-- Envelope Visual Card -->
     <button onclick="openEnvelope()" class="group relative w-full max-w-sm bg-[#FAF6F0] rounded-xl shadow-2xl p-8 border border-[#E2D5C3] flex flex-col items-center justify-center cursor-pointer transition transform hover:scale-[1.02]">
+      <!-- Wax Seal Button -->
       <div class="w-20 h-20 rounded-full bg-[#B89759] border-4 border-[#A38246] flex items-center justify-center shadow-lg mb-6 group-hover:scale-105 transition">
         <span class="font-serif-title text-2xl text-white tracking-widest">JC</span>
       </div>
@@ -77,17 +76,22 @@
   </div>
 
 
+  <!-- MAIN CONTENT CONTAINER -->
   <main id="main-content" class="max-w-md mx-auto bg-[#FDFBF7] min-h-screen shadow-2xl border-x border-[#EFE8DE] relative overflow-hidden">
 
+    <!-- ========================================== -->
     <!-- 2. HERO SCREEN -->
+    <!-- ========================================== -->
     <section class="slide-section relative flex flex-col justify-between items-center text-center p-6 bg-cover bg-center text-white" 
              style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('./IMG_7681.jpg');">
       
+      <!-- Top Monogram -->
       <div class="pt-8 fade-in-element">
         <span class="text-amber-200 text-xs font-serif-title tracking-widest">✦ ✦</span>
         <h2 class="font-serif-title text-3xl tracking-widest text-white">JC</h2>
       </div>
 
+      <!-- Hero Text -->
       <div class="mb-8 fade-in-element">
         <p class="text-xs uppercase tracking-[0.3em] text-amber-200 mb-2">You're Invited</p>
         <h1 class="font-serif-title text-3xl md:text-4xl tracking-wider mb-3">Jean Coprise</h1>
@@ -99,6 +103,7 @@
         </div>
       </div>
 
+      <!-- Scroll Indicator -->
       <div class="pb-6">
         <p class="text-[10px] uppercase tracking-[0.3em] text-gray-300">Scroll</p>
         <span class="text-xs text-gray-300">↓</span>
@@ -106,32 +111,80 @@
     </section>
 
 
-    <!-- 3. PERSONAL INVITATION – real flower decorations -->
+    <!-- ========================================== -->
+    <!-- 3. PERSONAL INVITATION (Matching your photo) -->
+    <!-- ========================================== -->
     <section class="slide-section relative py-12 px-8 text-center bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col items-center justify-center overflow-hidden">
       
-      <!-- TOP-RIGHT real dried flowers (stalks from edge, flowers facing in) -->
-      <img 
-        src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=600&q=80" 
-        alt="" 
-        class="flower-deco top-0 right-0 w-48 h-48 opacity-55"
-        style="transform: rotate(-8deg) translate(12%, -8%); object-position: right top;"
-      >
+      <!-- ========== TOP-RIGHT FLORAL CLUSTER (matches photo) ========== -->
+      <svg class="absolute top-0 right-0 w-52 h-52 opacity-70 pointer-events-none" viewBox="0 0 220 220" fill="none">
+        <!-- Main peach flower -->
+        <g transform="translate(145,35)">
+          <circle cx="0" cy="0" r="18" fill="#E8A87C"/>
+          <circle cx="-12" cy="-8" r="11" fill="#D98B6B"/>
+          <circle cx="12" cy="-9" r="12" fill="#E8A87C"/>
+          <circle cx="10" cy="10" r="10" fill="#C97B5A"/>
+          <circle cx="-10" cy="11" r="11" fill="#D98B6B"/>
+          <circle cx="0" cy="0" r="6" fill="#C4A484"/>
+        </g>
+        <!-- Secondary smaller flower -->
+        <g transform="translate(175,55)">
+          <circle cx="0" cy="0" r="12" fill="#E8A87C"/>
+          <circle cx="-8" cy="-5" r="8" fill="#D98B6B"/>
+          <circle cx="8" cy="-4" r="7" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="4" fill="#C4A484"/>
+        </g>
+        <!-- Pampas / dried grass stems -->
+        <path d="M160 50 Q 130 90 100 160" stroke="#C4A484" stroke-width="2.5" fill="none"/>
+        <path d="M145 70 Q 120 100 95 145" stroke="#B89759" stroke-width="1.8" fill="none"/>
+        <path d="M175 70 Q 160 110 150 155" stroke="#C4A484" stroke-width="2" fill="none"/>
+        <!-- Soft fern fronds -->
+        <path d="M130 80 Q 110 95 95 120" stroke="#A68B6A" stroke-width="1.5" fill="none"/>
+        <path d="M115 100 Q 100 115 90 135" stroke="#A68B6A" stroke-width="1.3" fill="none"/>
+        <path d="M155 90 Q 145 120 140 150" stroke="#B89759" stroke-width="1.4" fill="none"/>
+        <!-- Tiny leaves -->
+        <ellipse cx="105" cy="130" rx="8" ry="3" fill="#C4A484" transform="rotate(-40 105 130)"/>
+        <ellipse cx="120" cy="145" rx="7" ry="2.5" fill="#B89759" transform="rotate(20 120 145)"/>
+      </svg>
 
-      <!-- BOTTOM-LEFT real dried flowers -->
-      <img 
-        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=600&q=80" 
-        alt="" 
-        class="flower-deco bottom-0 left-0 w-52 h-52 opacity-55"
-        style="transform: rotate(6deg) translate(-10%, 10%); object-position: left bottom;"
-      >
+      <!-- ========== BOTTOM-LEFT FLORAL CLUSTER ========== -->
+      <svg class="absolute bottom-0 left-0 w-56 h-56 opacity-70 pointer-events-none" viewBox="0 0 220 220" fill="none">
+        <!-- Main peach flower -->
+        <g transform="translate(45,165)">
+          <circle cx="0" cy="0" r="20" fill="#E8A87C"/>
+          <circle cx="-14" cy="-9" r="12" fill="#D98B6B"/>
+          <circle cx="13" cy="-10" r="13" fill="#E8A87C"/>
+          <circle cx="11" cy="12" r="11" fill="#C97B5A"/>
+          <circle cx="-12" cy="13" r="12" fill="#D98B6B"/>
+          <circle cx="0" cy="0" r="7" fill="#C4A484"/>
+        </g>
+        <!-- Secondary flower -->
+        <g transform="translate(25,140)">
+          <circle cx="0" cy="0" r="13" fill="#E8A87C"/>
+          <circle cx="-9" cy="-6" r="9" fill="#D98B6B"/>
+          <circle cx="8" cy="-5" r="8" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="4.5" fill="#C4A484"/>
+        </g>
+        <!-- Stems going upward -->
+        <path d="M50 160 Q 80 110 130 70" stroke="#C4A484" stroke-width="2.8" fill="none"/>
+        <path d="M40 145 Q 70 100 110 60" stroke="#B89759" stroke-width="2" fill="none"/>
+        <path d="M60 175 Q 95 130 140 90" stroke="#A68B6A" stroke-width="1.8" fill="none"/>
+        <!-- Ferns & leaves -->
+        <path d="M75 120 Q 95 105 115 95" stroke="#A68B6A" stroke-width="1.5" fill="none"/>
+        <path d="M90 100 Q 110 90 125 85" stroke="#B89759" stroke-width="1.3" fill="none"/>
+        <ellipse cx="100" cy="95" rx="9" ry="3.5" fill="#C4A484" transform="rotate(-25 100 95)"/>
+        <ellipse cx="120" cy="80" rx="8" ry="3" fill="#B89759" transform="rotate(15 120 80)"/>
+      </svg>
 
-      <!-- BOTTOM-RIGHT soft fern/pampas accent -->
-      <img 
-        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=400&q=80" 
-        alt="" 
-        class="flower-deco bottom-0 right-0 w-36 h-36 opacity-40"
-        style="transform: rotate(-15deg) translate(15%, 15%); object-position: right bottom;"
-      >
+      <!-- ========== BOTTOM-RIGHT FERN ACCENT ========== -->
+      <svg class="absolute bottom-0 right-0 w-40 h-40 opacity-55 pointer-events-none" viewBox="0 0 160 160" fill="none">
+        <path d="M155 155 Q 110 120 80 50" stroke="#C4A484" stroke-width="2.5" fill="none"/>
+        <path d="M140 140 Q 105 115 85 70" stroke="#B89759" stroke-width="1.8" fill="none"/>
+        <path d="M125 130 Q 100 110 90 85" stroke="#A68B6A" stroke-width="1.5" fill="none"/>
+        <path d="M110 120 Q 95 105 88 90" stroke="#A68B6A" stroke-width="1.3" fill="none"/>
+        <ellipse cx="95" cy="75" rx="7" ry="2.5" fill="#C4A484" transform="rotate(-30 95 75)"/>
+        <ellipse cx="105" cy="95" rx="6" ry="2" fill="#B89759" transform="rotate(10 105 95)"/>
+      </svg>
 
       <div class="fade-in-element flex flex-col items-center z-10 relative">
         <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
@@ -159,24 +212,36 @@
     </section>
 
 
-    <!-- 4. DRESS CODE -->
+    <!-- ========================================== -->
+    <!-- 4. DRESS CODE & PALETTE -->
+    <!-- ========================================== -->
     <section class="slide-section relative py-10 px-6 text-center bg-[#FDFBF7] border-b border-[#EFE8DE] flex flex-col items-center justify-center overflow-hidden">
       
-      <!-- Top-right flower -->
-      <img 
-        src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=500&q=80" 
-        alt="" 
-        class="flower-deco top-0 right-0 w-40 h-40 opacity-45"
-        style="transform: rotate(-5deg) translate(8%, -5%);"
-      >
+      <!-- Top-Right Floral -->
+      <svg class="absolute top-0 right-0 w-44 h-44 opacity-55 pointer-events-none" viewBox="0 0 180 180" fill="none">
+        <g transform="translate(130,30)">
+          <circle cx="0" cy="0" r="15" fill="#E8A87C"/>
+          <circle cx="-10" cy="-7" r="9" fill="#D98B6B"/>
+          <circle cx="10" cy="-6" r="10" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="5" fill="#C4A484"/>
+        </g>
+        <path d="M130 40 Q 100 80 70 130" stroke="#C4A484" stroke-width="2.2" fill="none"/>
+        <path d="M145 50 Q 120 90 100 140" stroke="#B89759" stroke-width="1.6" fill="none"/>
+        <ellipse cx="85" cy="110" rx="7" ry="2.5" fill="#C4A484" transform="rotate(-35 85 110)"/>
+      </svg>
 
-      <!-- Bottom-left flower -->
-      <img 
-        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=500&q=80" 
-        alt="" 
-        class="flower-deco bottom-0 left-0 w-40 h-40 opacity-45"
-        style="transform: rotate(5deg) translate(-8%, 8%);"
-      >
+      <!-- Bottom-Left Floral -->
+      <svg class="absolute bottom-0 left-0 w-44 h-44 opacity-55 pointer-events-none" viewBox="0 0 180 180" fill="none">
+        <g transform="translate(40,140)">
+          <circle cx="0" cy="0" r="16" fill="#E8A87C"/>
+          <circle cx="-11" cy="-8" r="10" fill="#D98B6B"/>
+          <circle cx="11" cy="-7" r="10" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="5.5" fill="#C4A484"/>
+        </g>
+        <path d="M45 140 Q 80 100 120 60" stroke="#C4A484" stroke-width="2.2" fill="none"/>
+        <path d="M35 125 Q 70 90 105 55" stroke="#B89759" stroke-width="1.6" fill="none"/>
+        <ellipse cx="95" cy="80" rx="7" ry="2.5" fill="#C4A484" transform="rotate(25 95 80)"/>
+      </svg>
 
       <div class="fade-in-element flex flex-col items-center w-full z-10 relative">
         <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
@@ -191,40 +256,77 @@
           The celebration decor will feature a vibrant sunset palette. Feel free to let these colors inspire your look while staying true to your personal style.
         </p>
 
+        <!-- Complete 12 Color Palette Grid -->
         <div class="grid grid-cols-3 gap-3.5 max-w-xs mx-auto">
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#D23369] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#FF85BD] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#DD9CDF] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#D0292B] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#EC008C] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#FF6B00] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#F37042] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#FDDA25] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#00B5E2] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#719B53] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#B2C295] shadow-sm border border-black/5"></div></div>
-          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#F3E9B4] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#D23369] shadow-sm border border-black/5" title="Raspberry Sorbet"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#FF85BD] shadow-sm border border-black/5" title="PANTONE 926 C"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#DD9CDF] shadow-sm border border-black/5" title="PANTONE PMS 251 C"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#D0292B] shadow-sm border border-black/5" title="Fiery Red"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#EC008C] shadow-sm border border-black/5" title="Pink Glo"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#FF6B00] shadow-sm border border-black/5" title="Orange Slice"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#F37042] shadow-sm border border-black/5" title="Coral Rose"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#FDDA25] shadow-sm border border-black/5" title="PMS 115 C"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#00B5E2] shadow-sm border border-black/5" title="Process Blue C"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#719B53] shadow-sm border border-black/5" title="Foliage"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#B2C295] shadow-sm border border-black/5" title="Margarita"></div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full bg-[#F3E9B4] shadow-sm border border-black/5" title="Butter Yellow"></div>
+          </div>
         </div>
       </div>
     </section>
 
 
-    <!-- 5. RSVP -->
+    <!-- ========================================== -->
+    <!-- 5. RSVP FORM -->
+    <!-- ========================================== -->
     <section id="rsvp-section" class="slide-section relative py-8 px-6 bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col justify-center overflow-y-auto">
       
-      <img 
-        src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=400&q=80" 
-        alt="" 
-        class="flower-deco top-0 right-0 w-32 h-32 opacity-40"
-        style="transform: rotate(-6deg) translate(10%, -5%);"
-      >
+      <!-- Top Right Floral -->
+      <svg class="absolute top-0 right-0 w-36 h-36 opacity-45 pointer-events-none" viewBox="0 0 140 140" fill="none">
+        <g transform="translate(105,25)">
+          <circle cx="0" cy="0" r="13" fill="#E8A87C"/>
+          <circle cx="-8" cy="-6" r="8" fill="#D98B6B"/>
+          <circle cx="8" cy="-5" r="8" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="4" fill="#C4A484"/>
+        </g>
+        <path d="M105 35 Q 80 65 55 105" stroke="#C4A484" stroke-width="2" fill="none"/>
+        <path d="M115 45 Q 95 75 80 110" stroke="#B89759" stroke-width="1.5" fill="none"/>
+      </svg>
 
-      <img 
-        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=400&q=80" 
-        alt="" 
-        class="flower-deco bottom-0 left-0 w-32 h-32 opacity-40"
-        style="transform: rotate(6deg) translate(-10%, 8%);"
-      >
+      <!-- Bottom Left Floral -->
+      <svg class="absolute bottom-0 left-0 w-36 h-36 opacity-45 pointer-events-none" viewBox="0 0 140 140" fill="none">
+        <g transform="translate(30,110)">
+          <circle cx="0" cy="0" r="14" fill="#E8A87C"/>
+          <circle cx="-9" cy="-7" r="9" fill="#D98B6B"/>
+          <circle cx="9" cy="-6" r="9" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="4.5" fill="#C4A484"/>
+        </g>
+        <path d="M35 105 Q 60 70 95 40" stroke="#C4A484" stroke-width="2" fill="none"/>
+        <path d="M25 95 Q 55 65 85 35" stroke="#B89759" stroke-width="1.5" fill="none"/>
+      </svg>
 
       <div class="fade-in-element relative z-10">
         <div class="text-center mb-4">
@@ -235,18 +337,22 @@
         </div>
 
         <form id="rsvpForm" action="https://formspree.io/f/xnpanebz" method="POST" class="space-y-3">
+          
           <div>
             <input type="text" name="Full Name" required placeholder="👤  Full Name" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
+
           <div>
             <input type="tel" name="Phone Number" required placeholder="📞  Phone Number" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
+
           <div>
             <input type="email" name="Email" required placeholder="✉️  Email Address" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
+
           <div>
             <label class="block text-[11px] font-semibold text-[#6E5E58] mb-1.5">Will you be attending?</label>
             <div class="space-y-1.5">
@@ -260,40 +366,52 @@
               </label>
             </div>
           </div>
+
           <div>
             <input type="text" name="Dietary Requirements" placeholder="Dietary Requirements (optional)" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
+
           <div>
             <textarea name="Additional Notes" rows="2" placeholder="Additional Notes (optional)" 
                       class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]"></textarea>
           </div>
+
           <button type="submit" id="submitBtn" class="w-full bg-[#B89759] hover:bg-[#A38246] text-white font-serif-title text-xs uppercase tracking-widest py-3.5 rounded-lg shadow-md transition mt-2 flex items-center justify-center">
             <span>Confirm My RSVP</span>
             <span class="ml-2">✦</span>
           </button>
+
         </form>
       </div>
     </section>
 
 
-    <!-- 6. CONFIRMATION -->
+    <!-- ========================================== -->
+    <!-- 6. CONFIRMATION SCREEN -->
+    <!-- ========================================== -->
     <section id="confirmation-screen" class="hidden slide-section py-12 px-6 bg-[#1A1412] text-white flex flex-col items-center justify-center text-center relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-transparent to-amber-950/40 pointer-events-none"></div>
 
-      <img 
-        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=600&q=80" 
-        alt="" 
-        class="flower-deco bottom-0 left-1/2 -translate-x-1/2 w-72 h-28 opacity-30"
-        style="object-position: center bottom;"
-      >
+      <!-- Bottom floral accent -->
+      <svg class="absolute bottom-0 left-0 right-0 w-full h-36 opacity-30 text-[#B89759] pointer-events-none" viewBox="0 0 300 100" fill="none">
+        <circle cx="40" cy="85" r="22" fill="#E8A87C"/>
+        <circle cx="70" cy="75" r="15" fill="#D98B6B"/>
+        <circle cx="230" cy="80" r="18" fill="#E8A87C"/>
+        <circle cx="260" cy="90" r="20" fill="#C97B5A"/>
+        <path d="M40 85 Q 90 50 140 40" stroke="#C4A484" stroke-width="2" fill="none"/>
+        <path d="M260 90 Q 210 55 160 45" stroke="#B89759" stroke-width="2" fill="none"/>
+      </svg>
 
       <div class="relative z-10 w-full max-w-xs bg-[#FAF5EE] text-[#4A3E3D] rounded-t-full pt-16 pb-12 px-6 border border-[#E2D5C3] shadow-2xl flex flex-col items-center">
         <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
         <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-8">JC</h2>
+
         <h3 class="font-serif-title text-2xl tracking-widest text-[#4A3E3D] uppercase mb-2">Thank You</h3>
         <span class="text-[#B89759] text-lg mb-6">♥</span>
+
         <p class="text-xs font-semibold text-[#6E5E58] mb-6">Your RSVP has been received.</p>
+
         <p class="text-[11px] text-[#8C7A6B] font-light leading-relaxed max-w-[180px]">
           Further information will be shared with confirmed guests closer to the celebration.
         </p>
@@ -302,21 +420,34 @@
 
   </main>
 
+  <!-- Interactive JavaScript -->
   <script>
     function openEnvelope() {
       const envelope = document.getElementById('opening-screen');
       envelope.classList.add('envelope-open');
-      setTimeout(() => { envelope.style.display = 'none'; }, 800);
+      setTimeout(() => {
+        envelope.style.display = 'none';
+      }, 800);
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+      };
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
         });
-      }, { threshold: 0.2 });
+      }, observerOptions);
 
-      document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
+      document.querySelectorAll('.fade-in-element').forEach(el => {
+        observer.observe(el);
+      });
     });
 
     const form = document.getElementById('rsvpForm');
@@ -329,10 +460,12 @@
       submitBtn.disabled = true;
       submitBtn.innerText = 'Submitting...';
 
+      const formData = new FormData(form);
+
       try {
         const response = await fetch(form.action, {
           method: 'POST',
-          body: new FormData(form),
+          body: formData,
           headers: { 'Accept': 'application/json' }
         });
 
