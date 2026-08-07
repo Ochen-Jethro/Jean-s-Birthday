@@ -14,16 +14,46 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Montserrat', sans-serif; background-color: #F8F3ED; color: #4A3E3D; }
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+
+    body { 
+      font-family: 'Montserrat', sans-serif; 
+      background-color: #F8F3ED; 
+      color: #4A3E3D; 
+    }
+
     .font-serif-title { font-family: 'Cinzel', serif; }
     .font-script { font-family: 'Great Vibes', cursive; }
     
+    /* Full portrait viewport slide section */
+    .slide-section {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      height: 100vh;
+      height: 100dvh;
+    }
+
+    /* Scroll fade-in transition effect */
+    .fade-in-element {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-in-element.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Smooth transition for opening envelope */
     .envelope-wrapper { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease; }
     .envelope-open { transform: translateY(-100vh); opacity: 0; pointer-events: none; }
   </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden select-none">
 
   <!-- ========================================== -->
   <!-- 1. OPENING SCREEN (ENVELOPE OVERLAY) -->
@@ -47,22 +77,22 @@
 
 
   <!-- MAIN CONTENT CONTAINER -->
-  <main id="main-content" class="max-w-md mx-auto bg-[#FDFBF7] min-h-screen shadow-2xl border-x border-[#EFE8DE]">
+  <main id="main-content" class="max-w-md mx-auto bg-[#FDFBF7] min-h-screen shadow-2xl border-x border-[#EFE8DE] relative overflow-hidden">
 
     <!-- ========================================== -->
     <!-- 2. HERO SCREEN -->
     <!-- ========================================== -->
-    <section class="relative h-screen flex flex-col justify-between items-center text-center p-6 bg-cover bg-center text-white" 
+    <section class="slide-section relative flex flex-col justify-between items-center text-center p-6 bg-cover bg-center text-white" 
              style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('./IMG_7681.jpg');">
       
       <!-- Top Monogram -->
-      <div class="pt-8">
+      <div class="pt-8 fade-in-element">
         <span class="text-amber-200 text-xs font-serif-title tracking-widest">✦ ✦</span>
         <h2 class="font-serif-title text-3xl tracking-widest text-white">JC</h2>
       </div>
 
       <!-- Hero Text -->
-      <div class="mb-12">
+      <div class="mb-8 fade-in-element">
         <p class="text-xs uppercase tracking-[0.3em] text-amber-200 mb-2">You're Invited</p>
         <h1 class="font-serif-title text-3xl md:text-4xl tracking-wider mb-3">Jean Coprise</h1>
         <p class="text-xs font-light text-gray-200 tracking-wider leading-relaxed">
@@ -84,57 +114,100 @@
     <!-- ========================================== -->
     <!-- 3. PERSONAL INVITATION -->
     <!-- ========================================== -->
-    <section class="py-20 px-8 text-center bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col items-center justify-center min-h-[80vh]">
-      <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
-      <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-6">JC</h2>
+    <section class="slide-section relative py-12 px-8 text-center bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col items-center justify-center overflow-hidden">
+      
+      <!-- Top-Right Floral Silhouette SVG -->
+      <svg class="absolute top-0 right-0 w-36 h-36 opacity-30 text-[#B89759] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M100 0 C 70 10, 60 40, 50 60 C 45 40, 20 20, 0 10 C 30 30, 40 50, 50 80 C 60 60, 80 30, 100 0 Z" />
+        <circle cx="70" cy="25" r="8" opacity="0.6"/>
+        <circle cx="85" cy="15" r="12" opacity="0.8"/>
+        <circle cx="55" cy="40" r="6" opacity="0.5"/>
+      </svg>
 
-      <h3 class="font-script text-4xl text-[#A68346] mb-6">A personal invitation</h3>
+      <!-- Bottom-Left Floral Silhouette SVG -->
+      <svg class="absolute bottom-0 left-0 w-40 h-40 opacity-30 text-[#B89759] pointer-events-none transform rotate-180" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M100 0 C 70 10, 60 40, 50 60 C 45 40, 20 20, 0 10 C 30 30, 40 50, 50 80 C 60 60, 80 30, 100 0 Z" />
+        <circle cx="70" cy="25" r="8" opacity="0.6"/>
+        <circle cx="85" cy="15" r="12" opacity="0.8"/>
+        <circle cx="55" cy="40" r="6" opacity="0.5"/>
+      </svg>
 
-      <p class="text-sm leading-relaxed text-[#6E5E58] font-light max-w-xs mb-6">
-        Some moments are best shared with the people who make life meaningful.
-      </p>
+      <!-- Bottom-Right Small Palm/Leaf Accent -->
+      <svg class="absolute bottom-2 right-2 w-24 h-24 opacity-25 text-[#B89759] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M50 100 Q 60 50 100 20 Q 70 40 50 100 Q 40 50 0 20 Q 30 40 50 100" />
+      </svg>
 
-      <p class="text-sm leading-relaxed text-[#6E5E58] font-light max-w-xs mb-6">
-        It would mean so much to have you join me as I celebrate this special day surrounded by family and friends.
-      </p>
+      <div class="fade-in-element flex flex-col items-center z-10 relative">
+        <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
+        <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-4">JC</h2>
 
-      <p class="text-sm leading-relaxed text-[#6E5E58] font-light max-w-xs mb-8">
-        I truly hope you can make it.
-      </p>
+        <h3 class="font-script text-4xl text-[#A68346] mb-4">A personal invitation</h3>
 
-      <div class="mt-2">
-        <p class="font-script text-3xl text-[#A68346]">Jean</p>
-        <span class="text-xs text-[#B89759]">♥</span>
+        <p class="text-xs leading-relaxed text-[#6E5E58] font-light max-w-xs mb-4">
+          Some moments are best shared with the people who make life meaningful.
+        </p>
+
+        <p class="text-xs leading-relaxed text-[#6E5E58] font-light max-w-xs mb-4">
+          It would mean so much to have you join me as I celebrate this special day surrounded by family and friends.
+        </p>
+
+        <p class="text-xs leading-relaxed text-[#6E5E58] font-light max-w-xs mb-6">
+          I truly hope you can make it.
+        </p>
+
+        <div class="mt-1">
+          <p class="font-script text-3xl text-[#A68346]">Jean</p>
+          <span class="text-xs text-[#B89759]">♥</span>
+        </div>
       </div>
     </section>
 
 
     <!-- ========================================== -->
-    <!-- 4. DÉCOR COLORS -->
+    <!-- 4. DRESS CODE & PALETTE -->
     <!-- ========================================== -->
-    <section class="py-20 px-8 text-center bg-[#FDFBF7] border-b border-[#EFE8DE] flex flex-col items-center justify-center min-h-[80vh]">
-      <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
-      <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-6">JC</h2>
+    <section class="slide-section relative py-12 px-8 text-center bg-[#FDFBF7] border-b border-[#EFE8DE] flex flex-col items-center justify-center overflow-hidden">
+      
+      <!-- Top-Right Shadow Leaf -->
+      <svg class="absolute -top-4 -right-4 w-32 h-32 opacity-20 text-[#6E5E58] pointer-events-none transform rotate-45" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M10 50 Q 50 0 90 50 Q 50 100 10 50 Z" />
+      </svg>
 
-      <h3 class="font-serif-title text-xl text-[#4A3E3D] tracking-widest uppercase mb-4">
-        The Colors<br>of the Décor
-      </h3>
+      <!-- Bottom-Left Floral SVG -->
+      <svg class="absolute bottom-0 left-0 w-36 h-36 opacity-30 text-[#B89759] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
+        <circle cx="20" cy="80" r="14" opacity="0.7"/>
+        <circle cx="35" cy="65" r="10" opacity="0.6"/>
+        <path d="M0 100 C 30 80, 40 60, 60 20 C 40 40, 20 60, 0 100 Z" />
+      </svg>
 
-      <p class="text-xs leading-relaxed text-[#7D6C65] font-light max-w-xs mb-10">
-        These are the colors that will bring our celebration to life. We can't wait to celebrate surrounded by this beautiful sunset palette.
-      </p>
+      <div class="fade-in-element flex flex-col items-center w-full z-10 relative">
+        <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
+        <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-4">JC</h2>
 
-      <!-- 3x3 Color Grid -->
-      <div class="grid grid-cols-3 gap-6 max-w-xs mx-auto mb-6">
-        <div class="w-14 h-14 rounded-full bg-[#E89D27] shadow-sm justify-self-center"></div>
-        <div class="w-14 h-14 rounded-full bg-[#E06714] shadow-sm justify-self-center"></div>
-        <div class="w-14 h-14 rounded-full bg-[#EE734C] shadow-sm justify-self-center"></div>
-        <div class="w-14 h-14 rounded-full bg-[#E8758D] shadow-sm justify-self-center"></div>
-        <div class="w-14 h-14 rounded-full bg-[#9B82AA] shadow-sm justify-self-center"></div>
-        <div class="w-14 h-14 rounded-full bg-[#8E9B62] shadow-sm justify-self-center"></div>
-        <div class="w-14 h-14 rounded-full bg-[#E2D2C1] shadow-sm justify-self-center"></div>
-        <div class="w-14 h-14 rounded-full bg-[#8A5868] shadow-sm justify-self-center"></div>
-        <div class="w-14 h-14 rounded-full bg-[#FAF5EE] border border-[#E2D5C3] shadow-sm justify-self-center"></div>
+        <h3 class="font-serif-title text-lg text-[#4A3E3D] tracking-widest uppercase mb-3">
+          DRESS CODE
+        </h3>
+
+        <p class="text-[11px] leading-relaxed text-[#7D6C65] font-light max-w-xs mb-8">
+          <span class="font-semibold tracking-wider block mb-2 text-[#4A3E3D]">ELEGANT &nbsp;✦&nbsp; UNIQUE &nbsp;✦&nbsp; TIMELESS</span>
+          The celebration decor will feature a vibrant sunset palette. Feel free to let these colors inspire your look while staying true to your personal style.
+        </p>
+
+        <!-- 3x3 Updated Color Grid (Matching Image Hexes) -->
+        <div class="grid grid-cols-3 gap-5 max-w-xs mx-auto">
+          <!-- Row 1 -->
+          <div class="w-12 h-12 rounded-full bg-[#D23369] shadow-sm justify-self-center border border-black/5" title="Raspberry Sorbet"></div>
+          <div class="w-12 h-12 rounded-full bg-[#FF85BD] shadow-sm justify-self-center border border-black/5" title="Pantone 926 C"></div>
+          <div class="w-12 h-12 rounded-full bg-[#DD9CDF] shadow-sm justify-self-center border border-black/5" title="Pantone PMS 251 C"></div>
+          <!-- Row 2 -->
+          <div class="w-12 h-12 rounded-full bg-[#D0292B] shadow-sm justify-self-center border border-black/5" title="Fiery Red"></div>
+          <div class="w-12 h-12 rounded-full bg-[#EC008C] shadow-sm justify-self-center border border-black/5" title="Pink Glo"></div>
+          <div class="w-12 h-12 rounded-full bg-[#FF6B00] shadow-sm justify-self-center border border-black/5" title="Orange Slice"></div>
+          <!-- Row 3 -->
+          <div class="w-12 h-12 rounded-full bg-[#F37042] shadow-sm justify-self-center border border-black/5" title="Coral Rose"></div>
+          <div class="w-12 h-12 rounded-full bg-[#FDDA25] shadow-sm justify-self-center border border-black/5" title="PMS 115 C Yellow"></div>
+          <div class="w-12 h-12 rounded-full bg-[#00B5E2] shadow-sm justify-self-center border border-black/5" title="Process Blue C"></div>
+        </div>
       </div>
     </section>
 
@@ -142,83 +215,94 @@
     <!-- ========================================== -->
     <!-- 5. RSVP FORM (FORMSPREE INTEGRATED) -->
     <!-- ========================================== -->
-    <section id="rsvp-section" class="py-16 px-6 bg-[#FAF5EE] border-b border-[#EFE8DE]">
-      <div class="text-center mb-8">
-        <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
-        <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-4">JC</h2>
-        <h3 class="font-serif-title text-xl tracking-widest text-[#4A3E3D] uppercase mb-3">Kindly RSVP</h3>
-        <p class="text-xs font-semibold text-[#8C7A6B] mb-2">Please confirm your attendance by 15 August 2026.</p>
-        <p class="text-[11px] text-[#8C7A6B] font-light max-w-xs mx-auto leading-relaxed">
-          As this is an intimate celebration, your confirmation will help us prepare a wonderful experience for every guest.
-        </p>
-      </div>
+    <section id="rsvp-section" class="slide-section relative py-8 px-6 bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col justify-center overflow-y-auto">
+      
+      <!-- Top Right Corner Soft Leaves -->
+      <svg class="absolute top-0 right-0 w-28 h-28 opacity-25 text-[#B89759] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
+        <path d="M100 0 C 80 20, 70 40, 50 50 C 70 50, 80 70, 100 100 Z" />
+      </svg>
 
-      <!-- Formspree Integration Form -->
-      <form id="rsvpForm" action="https://formspree.io/f/xnpanebz" method="POST" class="space-y-4">
-        
-        <!-- Full Name -->
-        <div>
-          <input type="text" name="Full Name" required placeholder="👤  Full Name" 
-                 class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
+      <div class="fade-in-element relative z-10">
+        <div class="text-center mb-4">
+          <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
+          <h2 class="font-serif-title text-2xl text-[#B89759] tracking-widest mt-1">JC</h2>
+          <h3 class="font-serif-title text-lg tracking-widest text-[#4A3E3D] uppercase my-1">Kindly RSVP</h3>
+          <p class="text-[11px] font-semibold text-[#8C7A6B]">Please confirm your attendance by 15 August 2026.</p>
         </div>
 
-        <!-- Phone Number -->
-        <div>
-          <input type="tel" name="Phone Number" required placeholder="📞  Phone Number" 
-                 class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
-        </div>
-
-        <!-- Email Address -->
-        <div>
-          <input type="email" name="Email" required placeholder="✉️  Email Address" 
-                 class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
-        </div>
-
-        <!-- Will you be attending? -->
-        <div class="pt-2">
-          <label class="block text-[11px] font-semibold text-[#6E5E58] mb-2">Will you be attending?</label>
-          <div class="space-y-2">
-            <label class="flex items-center p-3 rounded-lg bg-[#F3EBE1] text-xs text-[#4A3E3D] cursor-pointer hover:bg-white transition">
-              <input type="radio" name="Attending" value="Yes, I'll be there" checked class="mr-3 accent-[#B89759]">
-              Yes, I'll be there
-            </label>
-            <label class="flex items-center p-3 rounded-lg bg-[#F3EBE1] text-xs text-[#4A3E3D] cursor-pointer hover:bg-white transition">
-              <input type="radio" name="Attending" value="Unfortunately, I can't make it" class="mr-3 accent-[#B89759]">
-              Unfortunately, I can't make it
-            </label>
+        <!-- Formspree Integration Form -->
+        <form id="rsvpForm" action="https://formspree.io/f/xnpanebz" method="POST" class="space-y-3">
+          
+          <!-- Full Name -->
+          <div>
+            <input type="text" name="Full Name" required placeholder="👤  Full Name" 
+                   class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
-        </div>
 
-        <!-- Dietary Requirements -->
-        <div class="pt-2">
-          <label class="block text-[11px] font-semibold text-[#6E5E58] mb-1">Dietary Requirements (optional)</label>
-          <input type="text" name="Dietary Requirements" placeholder="Please let us know" 
-                 class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
-        </div>
+          <!-- Phone Number -->
+          <div>
+            <input type="tel" name="Phone Number" required placeholder="📞  Phone Number" 
+                   class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
+          </div>
 
-        <!-- Additional Notes -->
-        <div class="pt-2">
-          <label class="block text-[11px] font-semibold text-[#6E5E58] mb-1">Additional Notes (optional)</label>
-          <textarea name="Additional Notes" rows="3" placeholder="Anything we should know?" 
-                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]"></textarea>
-        </div>
+          <!-- Email Address -->
+          <div>
+            <input type="email" name="Email" required placeholder="✉️  Email Address" 
+                   class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
+          </div>
 
-        <!-- Submit Button -->
-        <button type="submit" id="submitBtn" class="w-full bg-[#B89759] hover:bg-[#A38246] text-white font-serif-title text-xs uppercase tracking-widest py-4 rounded-lg shadow-md transition mt-4 flex items-center justify-center">
-          <span>Confirm My RSVP</span>
-          <span class="ml-2">✦</span>
-        </button>
+          <!-- Will you be attending? -->
+          <div>
+            <label class="block text-[11px] font-semibold text-[#6E5E58] mb-1.5">Will you be attending?</label>
+            <div class="space-y-1.5">
+              <label class="flex items-center p-2.5 rounded-lg bg-[#F3EBE1] text-xs text-[#4A3E3D] cursor-pointer hover:bg-white transition">
+                <input type="radio" name="Attending" value="Yes, I'll be there" checked class="mr-3 accent-[#B89759]">
+                Yes, I'll be there
+              </label>
+              <label class="flex items-center p-2.5 rounded-lg bg-[#F3EBE1] text-xs text-[#4A3E3D] cursor-pointer hover:bg-white transition">
+                <input type="radio" name="Attending" value="Unfortunately, I can't make it" class="mr-3 accent-[#B89759]">
+                Unfortunately, I can't make it
+              </label>
+            </div>
+          </div>
 
-      </form>
+          <!-- Dietary Requirements -->
+          <div>
+            <input type="text" name="Dietary Requirements" placeholder="Dietary Requirements (optional)" 
+                   class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
+          </div>
+
+          <!-- Additional Notes -->
+          <div>
+            <textarea name="Additional Notes" rows="2" placeholder="Additional Notes (optional)" 
+                      class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submitBtn" class="w-full bg-[#B89759] hover:bg-[#A38246] text-white font-serif-title text-xs uppercase tracking-widest py-3.5 rounded-lg shadow-md transition mt-2 flex items-center justify-center">
+            <span>Confirm My RSVP</span>
+            <span class="ml-2">✦</span>
+          </button>
+
+        </form>
+      </div>
     </section>
 
 
     <!-- ========================================== -->
     <!-- 6. CONFIRMATION SCREEN -->
     <!-- ========================================== -->
-    <section id="confirmation-screen" class="hidden min-h-screen py-20 px-6 bg-[#1A1412] text-white flex flex-col items-center justify-center text-center relative overflow-hidden">
+    <section id="confirmation-screen" class="hidden slide-section py-12 px-6 bg-[#1A1412] text-white flex flex-col items-center justify-center text-center relative overflow-hidden">
       <!-- Background Ambient Glow -->
       <div class="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-transparent to-amber-950/40 pointer-events-none"></div>
+
+      <!-- Bottom Flowers Accent Overlay -->
+      <svg class="absolute bottom-0 left-0 right-0 w-full h-32 opacity-20 text-[#B89759] pointer-events-none" viewBox="0 0 300 100" fill="currentColor">
+        <circle cx="30" cy="90" r="25" />
+        <circle cx="80" cy="80" r="18" />
+        <circle cx="220" cy="85" r="20" />
+        <circle cx="270" cy="95" r="22" />
+      </svg>
 
       <!-- Arch Card -->
       <div class="relative z-10 w-full max-w-xs bg-[#FAF5EE] text-[#4A3E3D] rounded-t-full pt-16 pb-12 px-6 border border-[#E2D5C3] shadow-2xl flex flex-col items-center">
@@ -248,6 +332,27 @@
         envelope.style.display = 'none';
       }, 800);
     }
+
+    // Scroll Fade-in Observer
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in-element').forEach(el => {
+        observer.observe(el);
+      });
+    });
 
     // Ajax Form Submission to smoothly display Screen 6 without leaving the page
     const form = document.getElementById('rsvpForm');
