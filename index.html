@@ -28,7 +28,6 @@
     .font-serif-title { font-family: 'Cinzel', serif; }
     .font-script { font-family: 'Great Vibes', cursive; }
     
-    /* Full portrait viewport slide section */
     .slide-section {
       scroll-snap-align: start;
       scroll-snap-stop: always;
@@ -36,7 +35,6 @@
       height: 100dvh;
     }
 
-    /* Scroll fade-in transition effect */
     .fade-in-element {
       opacity: 0;
       transform: translateY(24px);
@@ -48,25 +46,28 @@
       transform: translateY(0);
     }
 
-    /* Smooth transition for opening envelope */
     .envelope-wrapper { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease; }
     .envelope-open { transform: translateY(-100vh); opacity: 0; pointer-events: none; }
+
+    /* Real flower decorations */
+    .flower-deco {
+      position: absolute;
+      pointer-events: none;
+      z-index: 1;
+      object-fit: contain;
+    }
   </style>
 </head>
 <body class="overflow-x-hidden select-none">
 
-  <!-- ========================================== -->
-  <!-- 1. OPENING SCREEN (ENVELOPE OVERLAY) -->
-  <!-- ========================================== -->
+  <!-- 1. OPENING SCREEN -->
   <div id="opening-screen" class="envelope-wrapper fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#ECE3D9] p-4 text-center">
     <div class="mb-6 flex flex-col items-center">
       <span class="text-[#B89759] text-xs font-serif-title tracking-widest uppercase">✦ ✦</span>
       <h1 class="font-serif-title text-4xl text-[#B89759] tracking-widest mt-1">JC</h1>
     </div>
 
-    <!-- Envelope Visual Card -->
     <button onclick="openEnvelope()" class="group relative w-full max-w-sm bg-[#FAF6F0] rounded-xl shadow-2xl p-8 border border-[#E2D5C3] flex flex-col items-center justify-center cursor-pointer transition transform hover:scale-[1.02]">
-      <!-- Wax Seal Button -->
       <div class="w-20 h-20 rounded-full bg-[#B89759] border-4 border-[#A38246] flex items-center justify-center shadow-lg mb-6 group-hover:scale-105 transition">
         <span class="font-serif-title text-2xl text-white tracking-widest">JC</span>
       </div>
@@ -76,22 +77,17 @@
   </div>
 
 
-  <!-- MAIN CONTENT CONTAINER -->
   <main id="main-content" class="max-w-md mx-auto bg-[#FDFBF7] min-h-screen shadow-2xl border-x border-[#EFE8DE] relative overflow-hidden">
 
-    <!-- ========================================== -->
     <!-- 2. HERO SCREEN -->
-    <!-- ========================================== -->
     <section class="slide-section relative flex flex-col justify-between items-center text-center p-6 bg-cover bg-center text-white" 
              style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('./IMG_7681.jpg');">
       
-      <!-- Top Monogram -->
       <div class="pt-8 fade-in-element">
         <span class="text-amber-200 text-xs font-serif-title tracking-widest">✦ ✦</span>
         <h2 class="font-serif-title text-3xl tracking-widest text-white">JC</h2>
       </div>
 
-      <!-- Hero Text -->
       <div class="mb-8 fade-in-element">
         <p class="text-xs uppercase tracking-[0.3em] text-amber-200 mb-2">You're Invited</p>
         <h1 class="font-serif-title text-3xl md:text-4xl tracking-wider mb-3">Jean Coprise</h1>
@@ -103,7 +99,6 @@
         </div>
       </div>
 
-      <!-- Scroll Indicator -->
       <div class="pb-6">
         <p class="text-[10px] uppercase tracking-[0.3em] text-gray-300">Scroll</p>
         <span class="text-xs text-gray-300">↓</span>
@@ -111,20 +106,32 @@
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- 3. PERSONAL INVITATION -->
-    <!-- ========================================== -->
+    <!-- 3. PERSONAL INVITATION – real flower decorations -->
     <section class="slide-section relative py-12 px-8 text-center bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col items-center justify-center overflow-hidden">
       
-      <!-- Top-Right Real Flower (Stems from top right, blooms inward) -->
-      <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80" 
-           alt="Floral Overlay" 
-           class="absolute -top-6 -right-6 w-52 h-52 object-contain opacity-35 pointer-events-none mix-blend-multiply rotate-180 transform scale-x-[-1]" />
+      <!-- TOP-RIGHT real dried flowers (stalks from edge, flowers facing in) -->
+      <img 
+        src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=600&q=80" 
+        alt="" 
+        class="flower-deco top-0 right-0 w-48 h-48 opacity-55"
+        style="transform: rotate(-8deg) translate(12%, -8%); object-position: right top;"
+      >
 
-      <!-- Bottom-Left Real Flower (Stems from bottom left, blooms inward) -->
-      <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80" 
-           alt="Floral Overlay" 
-           class="absolute -bottom-8 -left-8 w-56 h-56 object-contain opacity-30 pointer-events-none mix-blend-multiply -rotate-12" />
+      <!-- BOTTOM-LEFT real dried flowers -->
+      <img 
+        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=600&q=80" 
+        alt="" 
+        class="flower-deco bottom-0 left-0 w-52 h-52 opacity-55"
+        style="transform: rotate(6deg) translate(-10%, 10%); object-position: left bottom;"
+      >
+
+      <!-- BOTTOM-RIGHT soft fern/pampas accent -->
+      <img 
+        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=400&q=80" 
+        alt="" 
+        class="flower-deco bottom-0 right-0 w-36 h-36 opacity-40"
+        style="transform: rotate(-15deg) translate(15%, 15%); object-position: right bottom;"
+      >
 
       <div class="fade-in-element flex flex-col items-center z-10 relative">
         <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
@@ -152,20 +159,24 @@
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- 4. DRESS CODE & PALETTE (ALL 12 COLORS) -->
-    <!-- ========================================== -->
+    <!-- 4. DRESS CODE -->
     <section class="slide-section relative py-10 px-6 text-center bg-[#FDFBF7] border-b border-[#EFE8DE] flex flex-col items-center justify-center overflow-hidden">
       
-      <!-- Top-Right Real Flower Stalk -->
-      <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=500&q=80" 
-           alt="Flower Stem" 
-           class="absolute -top-10 -right-10 w-48 h-48 object-contain opacity-30 pointer-events-none mix-blend-multiply rotate-12" />
+      <!-- Top-right flower -->
+      <img 
+        src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=500&q=80" 
+        alt="" 
+        class="flower-deco top-0 right-0 w-40 h-40 opacity-45"
+        style="transform: rotate(-5deg) translate(8%, -5%);"
+      >
 
-      <!-- Bottom-Left Real Flower Stalk -->
-      <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=500&q=80" 
-           alt="Flower Stem" 
-           class="absolute -bottom-10 -left-10 w-48 h-48 object-contain opacity-25 pointer-events-none mix-blend-multiply rotate-45" />
+      <!-- Bottom-left flower -->
+      <img 
+        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=500&q=80" 
+        alt="" 
+        class="flower-deco bottom-0 left-0 w-40 h-40 opacity-45"
+        style="transform: rotate(5deg) translate(-8%, 8%);"
+      >
 
       <div class="fade-in-element flex flex-col items-center w-full z-10 relative">
         <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
@@ -180,70 +191,40 @@
           The celebration decor will feature a vibrant sunset palette. Feel free to let these colors inspire your look while staying true to your personal style.
         </p>
 
-        <!-- Complete 12 Color Palette Grid (4 Rows x 3 Columns) -->
         <div class="grid grid-cols-3 gap-3.5 max-w-xs mx-auto">
-          <!-- Row 1 -->
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#D23369] shadow-sm border border-black/5" title="Raspberry Sorbet"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#FF85BD] shadow-sm border border-black/5" title="PANTONE 926 C"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#DD9CDF] shadow-sm border border-black/5" title="PANTONE PMS 251 C"></div>
-          </div>
-
-          <!-- Row 2 -->
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#D0292B] shadow-sm border border-black/5" title="Fiery Red"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#EC008C] shadow-sm border border-black/5" title="Pink Glo"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#FF6B00] shadow-sm border border-black/5" title="Orange Slice"></div>
-          </div>
-
-          <!-- Row 3 -->
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#F37042] shadow-sm border border-black/5" title="Coral Rose"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#FDDA25] shadow-sm border border-black/5" title="PMS 115 C"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#00B5E2] shadow-sm border border-black/5" title="Process Blue C"></div>
-          </div>
-
-          <!-- Row 4 -->
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#719B53] shadow-sm border border-black/5" title="Foliage"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#B2C295] shadow-sm border border-black/5" title="Margarita"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#F3E9B4] shadow-sm border border-black/5" title="Butter Yellow"></div>
-          </div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#D23369] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#FF85BD] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#DD9CDF] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#D0292B] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#EC008C] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#FF6B00] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#F37042] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#FDDA25] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#00B5E2] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#719B53] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#B2C295] shadow-sm border border-black/5"></div></div>
+          <div class="flex flex-col items-center"><div class="w-10 h-10 rounded-full bg-[#F3E9B4] shadow-sm border border-black/5"></div></div>
         </div>
       </div>
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- 5. RSVP FORM (FORMSPREE INTEGRATED) -->
-    <!-- ========================================== -->
+    <!-- 5. RSVP -->
     <section id="rsvp-section" class="slide-section relative py-8 px-6 bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col justify-center overflow-y-auto">
       
-      <!-- Top Right Real Flower Accent -->
-      <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=500&q=80" 
-           alt="Floral Corner" 
-           class="absolute -top-8 -right-8 w-44 h-44 object-contain opacity-25 pointer-events-none mix-blend-multiply rotate-90" />
+      <img 
+        src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=400&q=80" 
+        alt="" 
+        class="flower-deco top-0 right-0 w-32 h-32 opacity-40"
+        style="transform: rotate(-6deg) translate(10%, -5%);"
+      >
 
-      <!-- Bottom Left Real Flower Accent -->
-      <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=500&q=80" 
-           alt="Floral Corner" 
-           class="absolute -bottom-8 -left-8 w-44 h-44 object-contain opacity-25 pointer-events-none mix-blend-multiply -rotate-90" />
+      <img 
+        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=400&q=80" 
+        alt="" 
+        class="flower-deco bottom-0 left-0 w-32 h-32 opacity-40"
+        style="transform: rotate(6deg) translate(-10%, 8%);"
+      >
 
       <div class="fade-in-element relative z-10">
         <div class="text-center mb-4">
@@ -253,28 +234,19 @@
           <p class="text-[11px] font-semibold text-[#8C7A6B]">Please confirm your attendance by 15 August 2026.</p>
         </div>
 
-        <!-- Formspree Integration Form -->
         <form id="rsvpForm" action="https://formspree.io/f/xnpanebz" method="POST" class="space-y-3">
-          
-          <!-- Full Name -->
           <div>
             <input type="text" name="Full Name" required placeholder="👤  Full Name" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
-
-          <!-- Phone Number -->
           <div>
             <input type="tel" name="Phone Number" required placeholder="📞  Phone Number" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
-
-          <!-- Email Address -->
           <div>
             <input type="email" name="Email" required placeholder="✉️  Email Address" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
-
-          <!-- Will you be attending? -->
           <div>
             <label class="block text-[11px] font-semibold text-[#6E5E58] mb-1.5">Will you be attending?</label>
             <div class="space-y-1.5">
@@ -288,52 +260,40 @@
               </label>
             </div>
           </div>
-
-          <!-- Dietary Requirements -->
           <div>
             <input type="text" name="Dietary Requirements" placeholder="Dietary Requirements (optional)" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
-
-          <!-- Additional Notes -->
           <div>
             <textarea name="Additional Notes" rows="2" placeholder="Additional Notes (optional)" 
                       class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]"></textarea>
           </div>
-
-          <!-- Submit Button -->
           <button type="submit" id="submitBtn" class="w-full bg-[#B89759] hover:bg-[#A38246] text-white font-serif-title text-xs uppercase tracking-widest py-3.5 rounded-lg shadow-md transition mt-2 flex items-center justify-center">
             <span>Confirm My RSVP</span>
             <span class="ml-2">✦</span>
           </button>
-
         </form>
       </div>
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- 6. CONFIRMATION SCREEN -->
-    <!-- ========================================== -->
+    <!-- 6. CONFIRMATION -->
     <section id="confirmation-screen" class="hidden slide-section py-12 px-6 bg-[#1A1412] text-white flex flex-col items-center justify-center text-center relative overflow-hidden">
-      <!-- Background Ambient Glow -->
       <div class="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-transparent to-amber-950/40 pointer-events-none"></div>
 
-      <!-- Bottom Real Floral Accent Overlay -->
-      <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80" 
-           alt="Confirmation Floral" 
-           class="absolute -bottom-12 left-1/2 -translate-x-1/2 w-80 h-48 object-contain opacity-20 pointer-events-none mix-blend-screen" />
+      <img 
+        src="https://images.unsplash.com/photo-1615529328331-f8917597711f?auto=format&fit=crop&w=600&q=80" 
+        alt="" 
+        class="flower-deco bottom-0 left-1/2 -translate-x-1/2 w-72 h-28 opacity-30"
+        style="object-position: center bottom;"
+      >
 
-      <!-- Arch Card -->
       <div class="relative z-10 w-full max-w-xs bg-[#FAF5EE] text-[#4A3E3D] rounded-t-full pt-16 pb-12 px-6 border border-[#E2D5C3] shadow-2xl flex flex-col items-center">
         <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
         <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-8">JC</h2>
-
         <h3 class="font-serif-title text-2xl tracking-widest text-[#4A3E3D] uppercase mb-2">Thank You</h3>
         <span class="text-[#B89759] text-lg mb-6">♥</span>
-
         <p class="text-xs font-semibold text-[#6E5E58] mb-6">Your RSVP has been received.</p>
-
         <p class="text-[11px] text-[#8C7A6B] font-light leading-relaxed max-w-[180px]">
           Further information will be shared with confirmed guests closer to the celebration.
         </p>
@@ -342,39 +302,23 @@
 
   </main>
 
-  <!-- Interactive JavaScript -->
   <script>
-    // Unfold envelope when clicked
     function openEnvelope() {
       const envelope = document.getElementById('opening-screen');
       envelope.classList.add('envelope-open');
-      setTimeout(() => {
-        envelope.style.display = 'none';
-      }, 800);
+      setTimeout(() => { envelope.style.display = 'none'; }, 800);
     }
 
-    // Scroll Fade-in Observer
     document.addEventListener("DOMContentLoaded", function () {
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-      };
-
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-      }, observerOptions);
+      }, { threshold: 0.2 });
 
-      document.querySelectorAll('.fade-in-element').forEach(el => {
-        observer.observe(el);
-      });
+      document.querySelectorAll('.fade-in-element').forEach(el => observer.observe(el));
     });
 
-    // Ajax Form Submission
     const form = document.getElementById('rsvpForm');
     const submitBtn = document.getElementById('submitBtn');
     const confirmationScreen = document.getElementById('confirmation-screen');
@@ -385,12 +329,10 @@
       submitBtn.disabled = true;
       submitBtn.innerText = 'Submitting...';
 
-      const formData = new FormData(form);
-
       try {
         const response = await fetch(form.action, {
           method: 'POST',
-          body: formData,
+          body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
 
