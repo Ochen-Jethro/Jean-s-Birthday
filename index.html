@@ -112,45 +112,78 @@
 
 
     <!-- ========================================== -->
-    <!-- 3. PERSONAL INVITATION -->
+    <!-- 3. PERSONAL INVITATION (Matching your photo) -->
     <!-- ========================================== -->
     <section class="slide-section relative py-12 px-8 text-center bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col items-center justify-center overflow-hidden">
       
-      <!-- Top-Right Floral Overlay (Reflects photo style) -->
-      <svg class="absolute top-0 right-0 w-44 h-44 opacity-40 text-[#C49A6C] pointer-events-none" viewBox="0 0 200 200" fill="currentColor">
-        <!-- Main Flower Head -->
-        <circle cx="160" cy="40" r="16" />
-        <circle cx="140" cy="30" r="10" />
-        <circle cx="175" cy="25" r="12" />
-        <circle cx="175" cy="55" r="11" />
-        <circle cx="145" cy="55" r="10" />
-        <!-- Pampas / Fern Branches -->
-        <path d="M160 40 Q 120 80 90 140" stroke="currentColor" stroke-width="3" fill="none" />
-        <path d="M130 70 Q 100 75 80 90" stroke="currentColor" stroke-width="2" fill="none" />
-        <path d="M110 90 Q 85 105 70 120" stroke="currentColor" stroke-width="2" fill="none" />
-        <path d="M160 40 Q 180 90 190 150" stroke="currentColor" stroke-width="2" fill="none" />
+      <!-- ========== TOP-RIGHT FLORAL CLUSTER (matches photo) ========== -->
+      <svg class="absolute top-0 right-0 w-52 h-52 opacity-70 pointer-events-none" viewBox="0 0 220 220" fill="none">
+        <!-- Main peach flower -->
+        <g transform="translate(145,35)">
+          <circle cx="0" cy="0" r="18" fill="#E8A87C"/>
+          <circle cx="-12" cy="-8" r="11" fill="#D98B6B"/>
+          <circle cx="12" cy="-9" r="12" fill="#E8A87C"/>
+          <circle cx="10" cy="10" r="10" fill="#C97B5A"/>
+          <circle cx="-10" cy="11" r="11" fill="#D98B6B"/>
+          <circle cx="0" cy="0" r="6" fill="#C4A484"/>
+        </g>
+        <!-- Secondary smaller flower -->
+        <g transform="translate(175,55)">
+          <circle cx="0" cy="0" r="12" fill="#E8A87C"/>
+          <circle cx="-8" cy="-5" r="8" fill="#D98B6B"/>
+          <circle cx="8" cy="-4" r="7" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="4" fill="#C4A484"/>
+        </g>
+        <!-- Pampas / dried grass stems -->
+        <path d="M160 50 Q 130 90 100 160" stroke="#C4A484" stroke-width="2.5" fill="none"/>
+        <path d="M145 70 Q 120 100 95 145" stroke="#B89759" stroke-width="1.8" fill="none"/>
+        <path d="M175 70 Q 160 110 150 155" stroke="#C4A484" stroke-width="2" fill="none"/>
+        <!-- Soft fern fronds -->
+        <path d="M130 80 Q 110 95 95 120" stroke="#A68B6A" stroke-width="1.5" fill="none"/>
+        <path d="M115 100 Q 100 115 90 135" stroke="#A68B6A" stroke-width="1.3" fill="none"/>
+        <path d="M155 90 Q 145 120 140 150" stroke="#B89759" stroke-width="1.4" fill="none"/>
+        <!-- Tiny leaves -->
+        <ellipse cx="105" cy="130" rx="8" ry="3" fill="#C4A484" transform="rotate(-40 105 130)"/>
+        <ellipse cx="120" cy="145" rx="7" ry="2.5" fill="#B89759" transform="rotate(20 120 145)"/>
       </svg>
 
-      <!-- Bottom-Left Floral Overlay -->
-      <svg class="absolute bottom-0 left-0 w-48 h-48 opacity-40 text-[#C49A6C] pointer-events-none" viewBox="0 0 200 200" fill="currentColor">
-        <!-- Main Flower Head -->
-        <circle cx="40" cy="160" r="18" />
-        <circle cx="20" cy="145" r="11" />
-        <circle cx="55" cy="140" r="12" />
-        <circle cx="25" cy="175" r="10" />
-        <circle cx="55" cy="175" r="11" />
-        <!-- Leaves & Stems extending upward and right -->
-        <path d="M40 160 Q 70 110 120 70" stroke="currentColor" stroke-width="3" fill="none" />
-        <path d="M70 125 Q 100 120 125 130" stroke="currentColor" stroke-width="2" fill="none" />
-        <path d="M85 100 Q 115 90 135 100" stroke="currentColor" stroke-width="2" fill="none" />
-        <path d="M40 160 Q 20 100 10 50" stroke="currentColor" stroke-width="2" fill="none" />
+      <!-- ========== BOTTOM-LEFT FLORAL CLUSTER ========== -->
+      <svg class="absolute bottom-0 left-0 w-56 h-56 opacity-70 pointer-events-none" viewBox="0 0 220 220" fill="none">
+        <!-- Main peach flower -->
+        <g transform="translate(45,165)">
+          <circle cx="0" cy="0" r="20" fill="#E8A87C"/>
+          <circle cx="-14" cy="-9" r="12" fill="#D98B6B"/>
+          <circle cx="13" cy="-10" r="13" fill="#E8A87C"/>
+          <circle cx="11" cy="12" r="11" fill="#C97B5A"/>
+          <circle cx="-12" cy="13" r="12" fill="#D98B6B"/>
+          <circle cx="0" cy="0" r="7" fill="#C4A484"/>
+        </g>
+        <!-- Secondary flower -->
+        <g transform="translate(25,140)">
+          <circle cx="0" cy="0" r="13" fill="#E8A87C"/>
+          <circle cx="-9" cy="-6" r="9" fill="#D98B6B"/>
+          <circle cx="8" cy="-5" r="8" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="4.5" fill="#C4A484"/>
+        </g>
+        <!-- Stems going upward -->
+        <path d="M50 160 Q 80 110 130 70" stroke="#C4A484" stroke-width="2.8" fill="none"/>
+        <path d="M40 145 Q 70 100 110 60" stroke="#B89759" stroke-width="2" fill="none"/>
+        <path d="M60 175 Q 95 130 140 90" stroke="#A68B6A" stroke-width="1.8" fill="none"/>
+        <!-- Ferns & leaves -->
+        <path d="M75 120 Q 95 105 115 95" stroke="#A68B6A" stroke-width="1.5" fill="none"/>
+        <path d="M90 100 Q 110 90 125 85" stroke="#B89759" stroke-width="1.3" fill="none"/>
+        <ellipse cx="100" cy="95" rx="9" ry="3.5" fill="#C4A484" transform="rotate(-25 100 95)"/>
+        <ellipse cx="120" cy="80" rx="8" ry="3" fill="#B89759" transform="rotate(15 120 80)"/>
       </svg>
 
-      <!-- Bottom-Right Fern Accent -->
-      <svg class="absolute bottom-0 right-0 w-36 h-36 opacity-35 text-[#C49A6C] pointer-events-none" viewBox="0 0 150 150" fill="currentColor">
-        <path d="M150 150 Q 100 110 70 40" stroke="currentColor" stroke-width="2.5" fill="none" />
-        <path d="M120 120 Q 90 110 80 95" stroke="currentColor" stroke-width="1.5" fill="none" />
-        <path d="M100 95 Q 75 85 65 70" stroke="currentColor" stroke-width="1.5" fill="none" />
+      <!-- ========== BOTTOM-RIGHT FERN ACCENT ========== -->
+      <svg class="absolute bottom-0 right-0 w-40 h-40 opacity-55 pointer-events-none" viewBox="0 0 160 160" fill="none">
+        <path d="M155 155 Q 110 120 80 50" stroke="#C4A484" stroke-width="2.5" fill="none"/>
+        <path d="M140 140 Q 105 115 85 70" stroke="#B89759" stroke-width="1.8" fill="none"/>
+        <path d="M125 130 Q 100 110 90 85" stroke="#A68B6A" stroke-width="1.5" fill="none"/>
+        <path d="M110 120 Q 95 105 88 90" stroke="#A68B6A" stroke-width="1.3" fill="none"/>
+        <ellipse cx="95" cy="75" rx="7" ry="2.5" fill="#C4A484" transform="rotate(-30 95 75)"/>
+        <ellipse cx="105" cy="95" rx="6" ry="2" fill="#B89759" transform="rotate(10 105 95)"/>
       </svg>
 
       <div class="fade-in-element flex flex-col items-center z-10 relative">
@@ -180,24 +213,34 @@
 
 
     <!-- ========================================== -->
-    <!-- 4. DRESS CODE & PALETTE (ALL 12 COLORS) -->
+    <!-- 4. DRESS CODE & PALETTE -->
     <!-- ========================================== -->
     <section class="slide-section relative py-10 px-6 text-center bg-[#FDFBF7] border-b border-[#EFE8DE] flex flex-col items-center justify-center overflow-hidden">
       
-      <!-- Top-Right Floral Overlay -->
-      <svg class="absolute top-0 right-0 w-36 h-36 opacity-30 text-[#C49A6C] pointer-events-none" viewBox="0 0 150 150" fill="currentColor">
-        <circle cx="120" cy="30" r="14" />
-        <circle cx="100" cy="25" r="9" />
-        <circle cx="130" cy="45" r="9" />
-        <path d="M120 30 Q 80 70 50 120" stroke="currentColor" stroke-width="2" fill="none" />
+      <!-- Top-Right Floral -->
+      <svg class="absolute top-0 right-0 w-44 h-44 opacity-55 pointer-events-none" viewBox="0 0 180 180" fill="none">
+        <g transform="translate(130,30)">
+          <circle cx="0" cy="0" r="15" fill="#E8A87C"/>
+          <circle cx="-10" cy="-7" r="9" fill="#D98B6B"/>
+          <circle cx="10" cy="-6" r="10" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="5" fill="#C4A484"/>
+        </g>
+        <path d="M130 40 Q 100 80 70 130" stroke="#C4A484" stroke-width="2.2" fill="none"/>
+        <path d="M145 50 Q 120 90 100 140" stroke="#B89759" stroke-width="1.6" fill="none"/>
+        <ellipse cx="85" cy="110" rx="7" ry="2.5" fill="#C4A484" transform="rotate(-35 85 110)"/>
       </svg>
 
-      <!-- Bottom-Left Floral Overlay -->
-      <svg class="absolute bottom-0 left-0 w-36 h-36 opacity-30 text-[#C49A6C] pointer-events-none" viewBox="0 0 150 150" fill="currentColor">
-        <circle cx="30" cy="120" r="14" />
-        <circle cx="50" cy="125" r="9" />
-        <circle cx="20" cy="105" r="9" />
-        <path d="M30 120 Q 70 80 120 50" stroke="currentColor" stroke-width="2" fill="none" />
+      <!-- Bottom-Left Floral -->
+      <svg class="absolute bottom-0 left-0 w-44 h-44 opacity-55 pointer-events-none" viewBox="0 0 180 180" fill="none">
+        <g transform="translate(40,140)">
+          <circle cx="0" cy="0" r="16" fill="#E8A87C"/>
+          <circle cx="-11" cy="-8" r="10" fill="#D98B6B"/>
+          <circle cx="11" cy="-7" r="10" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="5.5" fill="#C4A484"/>
+        </g>
+        <path d="M45 140 Q 80 100 120 60" stroke="#C4A484" stroke-width="2.2" fill="none"/>
+        <path d="M35 125 Q 70 90 105 55" stroke="#B89759" stroke-width="1.6" fill="none"/>
+        <ellipse cx="95" cy="80" rx="7" ry="2.5" fill="#C4A484" transform="rotate(25 95 80)"/>
       </svg>
 
       <div class="fade-in-element flex flex-col items-center w-full z-10 relative">
@@ -213,9 +256,8 @@
           The celebration decor will feature a vibrant sunset palette. Feel free to let these colors inspire your look while staying true to your personal style.
         </p>
 
-        <!-- Complete 12 Color Palette Grid (4 Rows x 3 Columns) -->
+        <!-- Complete 12 Color Palette Grid -->
         <div class="grid grid-cols-3 gap-3.5 max-w-xs mx-auto">
-          <!-- Row 1 -->
           <div class="flex flex-col items-center">
             <div class="w-10 h-10 rounded-full bg-[#D23369] shadow-sm border border-black/5" title="Raspberry Sorbet"></div>
           </div>
@@ -225,8 +267,6 @@
           <div class="flex flex-col items-center">
             <div class="w-10 h-10 rounded-full bg-[#DD9CDF] shadow-sm border border-black/5" title="PANTONE PMS 251 C"></div>
           </div>
-
-          <!-- Row 2 -->
           <div class="flex flex-col items-center">
             <div class="w-10 h-10 rounded-full bg-[#D0292B] shadow-sm border border-black/5" title="Fiery Red"></div>
           </div>
@@ -236,8 +276,6 @@
           <div class="flex flex-col items-center">
             <div class="w-10 h-10 rounded-full bg-[#FF6B00] shadow-sm border border-black/5" title="Orange Slice"></div>
           </div>
-
-          <!-- Row 3 -->
           <div class="flex flex-col items-center">
             <div class="w-10 h-10 rounded-full bg-[#F37042] shadow-sm border border-black/5" title="Coral Rose"></div>
           </div>
@@ -247,8 +285,6 @@
           <div class="flex flex-col items-center">
             <div class="w-10 h-10 rounded-full bg-[#00B5E2] shadow-sm border border-black/5" title="Process Blue C"></div>
           </div>
-
-          <!-- Row 4 -->
           <div class="flex flex-col items-center">
             <div class="w-10 h-10 rounded-full bg-[#719B53] shadow-sm border border-black/5" title="Foliage"></div>
           </div>
@@ -264,18 +300,32 @@
 
 
     <!-- ========================================== -->
-    <!-- 5. RSVP FORM (FORMSPREE INTEGRATED) -->
+    <!-- 5. RSVP FORM -->
     <!-- ========================================== -->
     <section id="rsvp-section" class="slide-section relative py-8 px-6 bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col justify-center overflow-y-auto">
       
-      <!-- Top Right Corner Leaves -->
-      <svg class="absolute top-0 right-0 w-32 h-32 opacity-25 text-[#C49A6C] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-        <path d="M100 0 C 80 20, 70 40, 50 50 C 70 50, 80 70, 100 100 Z" />
+      <!-- Top Right Floral -->
+      <svg class="absolute top-0 right-0 w-36 h-36 opacity-45 pointer-events-none" viewBox="0 0 140 140" fill="none">
+        <g transform="translate(105,25)">
+          <circle cx="0" cy="0" r="13" fill="#E8A87C"/>
+          <circle cx="-8" cy="-6" r="8" fill="#D98B6B"/>
+          <circle cx="8" cy="-5" r="8" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="4" fill="#C4A484"/>
+        </g>
+        <path d="M105 35 Q 80 65 55 105" stroke="#C4A484" stroke-width="2" fill="none"/>
+        <path d="M115 45 Q 95 75 80 110" stroke="#B89759" stroke-width="1.5" fill="none"/>
       </svg>
 
-      <!-- Bottom Left Corner Leaves -->
-      <svg class="absolute bottom-0 left-0 w-32 h-32 opacity-25 text-[#C49A6C] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-        <path d="M0 100 C 20 80, 40 70, 50 50 C 50 70, 70 80, 100 100 Z" />
+      <!-- Bottom Left Floral -->
+      <svg class="absolute bottom-0 left-0 w-36 h-36 opacity-45 pointer-events-none" viewBox="0 0 140 140" fill="none">
+        <g transform="translate(30,110)">
+          <circle cx="0" cy="0" r="14" fill="#E8A87C"/>
+          <circle cx="-9" cy="-7" r="9" fill="#D98B6B"/>
+          <circle cx="9" cy="-6" r="9" fill="#E8A87C"/>
+          <circle cx="0" cy="0" r="4.5" fill="#C4A484"/>
+        </g>
+        <path d="M35 105 Q 60 70 95 40" stroke="#C4A484" stroke-width="2" fill="none"/>
+        <path d="M25 95 Q 55 65 85 35" stroke="#B89759" stroke-width="1.5" fill="none"/>
       </svg>
 
       <div class="fade-in-element relative z-10">
@@ -286,28 +336,23 @@
           <p class="text-[11px] font-semibold text-[#8C7A6B]">Please confirm your attendance by 15 August 2026.</p>
         </div>
 
-        <!-- Formspree Integration Form -->
         <form id="rsvpForm" action="https://formspree.io/f/xnpanebz" method="POST" class="space-y-3">
           
-          <!-- Full Name -->
           <div>
             <input type="text" name="Full Name" required placeholder="👤  Full Name" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
 
-          <!-- Phone Number -->
           <div>
             <input type="tel" name="Phone Number" required placeholder="📞  Phone Number" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
 
-          <!-- Email Address -->
           <div>
             <input type="email" name="Email" required placeholder="✉️  Email Address" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
 
-          <!-- Will you be attending? -->
           <div>
             <label class="block text-[11px] font-semibold text-[#6E5E58] mb-1.5">Will you be attending?</label>
             <div class="space-y-1.5">
@@ -322,19 +367,16 @@
             </div>
           </div>
 
-          <!-- Dietary Requirements -->
           <div>
             <input type="text" name="Dietary Requirements" placeholder="Dietary Requirements (optional)" 
                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
           </div>
 
-          <!-- Additional Notes -->
           <div>
             <textarea name="Additional Notes" rows="2" placeholder="Additional Notes (optional)" 
                       class="w-full bg-[#F3EBE1] text-xs px-4 py-3 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]"></textarea>
           </div>
 
-          <!-- Submit Button -->
           <button type="submit" id="submitBtn" class="w-full bg-[#B89759] hover:bg-[#A38246] text-white font-serif-title text-xs uppercase tracking-widest py-3.5 rounded-lg shadow-md transition mt-2 flex items-center justify-center">
             <span>Confirm My RSVP</span>
             <span class="ml-2">✦</span>
@@ -349,18 +391,18 @@
     <!-- 6. CONFIRMATION SCREEN -->
     <!-- ========================================== -->
     <section id="confirmation-screen" class="hidden slide-section py-12 px-6 bg-[#1A1412] text-white flex flex-col items-center justify-center text-center relative overflow-hidden">
-      <!-- Background Ambient Glow -->
       <div class="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-transparent to-amber-950/40 pointer-events-none"></div>
 
-      <!-- Bottom Floral Accent Overlay -->
-      <svg class="absolute bottom-0 left-0 right-0 w-full h-32 opacity-25 text-[#B89759] pointer-events-none" viewBox="0 0 300 100" fill="currentColor">
-        <circle cx="30" cy="90" r="25" />
-        <circle cx="80" cy="80" r="18" />
-        <circle cx="220" cy="85" r="20" />
-        <circle cx="270" cy="95" r="22" />
+      <!-- Bottom floral accent -->
+      <svg class="absolute bottom-0 left-0 right-0 w-full h-36 opacity-30 text-[#B89759] pointer-events-none" viewBox="0 0 300 100" fill="none">
+        <circle cx="40" cy="85" r="22" fill="#E8A87C"/>
+        <circle cx="70" cy="75" r="15" fill="#D98B6B"/>
+        <circle cx="230" cy="80" r="18" fill="#E8A87C"/>
+        <circle cx="260" cy="90" r="20" fill="#C97B5A"/>
+        <path d="M40 85 Q 90 50 140 40" stroke="#C4A484" stroke-width="2" fill="none"/>
+        <path d="M260 90 Q 210 55 160 45" stroke="#B89759" stroke-width="2" fill="none"/>
       </svg>
 
-      <!-- Arch Card -->
       <div class="relative z-10 w-full max-w-xs bg-[#FAF5EE] text-[#4A3E3D] rounded-t-full pt-16 pb-12 px-6 border border-[#E2D5C3] shadow-2xl flex flex-col items-center">
         <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
         <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-8">JC</h2>
@@ -380,7 +422,6 @@
 
   <!-- Interactive JavaScript -->
   <script>
-    // Unfold envelope when clicked
     function openEnvelope() {
       const envelope = document.getElementById('opening-screen');
       envelope.classList.add('envelope-open');
@@ -389,7 +430,6 @@
       }, 800);
     }
 
-    // Scroll Fade-in Observer
     document.addEventListener("DOMContentLoaded", function () {
       const observerOptions = {
         root: null,
@@ -410,7 +450,6 @@
       });
     });
 
-    // Ajax Form Submission
     const form = document.getElementById('rsvpForm');
     const submitBtn = document.getElementById('submitBtn');
     const confirmationScreen = document.getElementById('confirmation-screen');
