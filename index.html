@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jean Coprise - Birthday Invitation</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Montserrat', sans-serif; background-color: #F8F3ED; color: #4A3E3D; }
+    .font-serif-title { font-family: 'Cinzel', serif; }
+    .font-script { font-family: 'Great Vibes', cursive; }
+    
+    /* Smooth transition for opening envelope */
+    .envelope-wrapper { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease; }
+    .envelope-open { transform: translateY(-100vh); opacity: 0; pointer-events: none; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- ========================================== -->
+  <!-- 1. OPENING SCREEN (ENVELOPE OVERLAY) -->
+  <!-- ========================================== -->
+  <div id="opening-screen" class="envelope-wrapper fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#ECE3D9] p-4 text-center">
+    <div class="mb-6 flex flex-col items-center">
+      <span class="text-[#B89759] text-xs font-serif-title tracking-widest uppercase">✦ ✦</span>
+      <h1 class="font-serif-title text-4xl text-[#B89759] tracking-widest mt-1">JC</h1>
+    </div>
+
+    <!-- Envelope Visual Card -->
+    <button onclick="openEnvelope()" class="group relative w-full max-w-sm bg-[#FAF6F0] rounded-xl shadow-2xl p-8 border border-[#E2D5C3] flex flex-col items-center justify-center cursor-pointer transition transform hover:scale-[1.02]">
+      <!-- Wax Seal Button -->
+      <div class="w-20 h-20 rounded-full bg-[#B89759] border-4 border-[#A38246] flex items-center justify-center shadow-lg mb-6 group-hover:scale-105 transition">
+        <span class="font-serif-title text-2xl text-white tracking-widest">JC</span>
+      </div>
+      <p class="font-serif-title text-xs uppercase tracking-[0.25em] text-[#8C7A6B]">Tap To Open</p>
+      <span class="text-[#8C7A6B] mt-2 animate-bounce">↓</span>
+    </button>
+  </div>
+
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main id="main-content" class="max-w-md mx-auto bg-[#FDFBF7] min-h-screen shadow-2xl border-x border-[#EFE8DE]">
+
+    <!-- ========================================== -->
+    <!-- 2. HERO SCREEN -->
+    <!-- ========================================== -->
+    <section class="relative h-screen flex flex-col justify-between items-center text-center p-6 bg-cover bg-center text-white" 
+             style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7)), url('./IMG_7681.jpg');">
+      
+      <!-- Top Monogram -->
+      <div class="pt-8">
+        <span class="text-amber-200 text-xs font-serif-title tracking-widest">✦ ✦</span>
+        <h2 class="font-serif-title text-3xl tracking-widest text-white">JC</h2>
+      </div>
+
+      <!-- Hero Text -->
+      <div class="mb-12">
+        <p class="text-xs uppercase tracking-[0.3em] text-amber-200 mb-2">You're Invited</p>
+        <h1 class="font-serif-title text-3xl md:text-4xl tracking-wider mb-3">Jean Coprise</h1>
+        <p class="text-xs font-light text-gray-200 tracking-wider leading-relaxed">
+          would love to celebrate<br>her birthday with you.
+        </p>
+        <div class="mt-6 inline-block border-y border-amber-200/40 py-2 px-6">
+          <p class="font-serif-title text-sm tracking-widest text-amber-100">5 SEPTEMBER 2026</p>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="pb-6">
+        <p class="text-[10px] uppercase tracking-[0.3em] text-gray-300">Scroll</p>
+        <span class="text-xs text-gray-300">↓</span>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 3. PERSONAL INVITATION -->
+    <!-- ========================================== -->
+    <section class="py-20 px-8 text-center bg-[#FAF5EE] border-b border-[#EFE8DE] flex flex-col items-center justify-center min-h-[80vh]">
+      <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
+      <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-6">JC</h2>
+
+      <h3 class="font-script text-4xl text-[#A68346] mb-6">A personal invitation</h3>
+
+      <p class="text-sm leading-relaxed text-[#6E5E58] font-light max-w-xs mb-6">
+        Some moments are best shared with the people who make life meaningful.
+      </p>
+
+      <p class="text-sm leading-relaxed text-[#6E5E58] font-light max-w-xs mb-6">
+        It would mean so much to have you join me as I celebrate this special day surrounded by family and friends.
+      </p>
+
+      <p class="text-sm leading-relaxed text-[#6E5E58] font-light max-w-xs mb-8">
+        I truly hope you can make it.
+      </p>
+
+      <div class="mt-2">
+        <p class="font-script text-3xl text-[#A68346]">Jean</p>
+        <span class="text-xs text-[#B89759]">♥</span>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 4. DÉCOR COLORS -->
+    <!-- ========================================== -->
+    <section class="py-20 px-8 text-center bg-[#FDFBF7] border-b border-[#EFE8DE] flex flex-col items-center justify-center min-h-[80vh]">
+      <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
+      <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-6">JC</h2>
+
+      <h3 class="font-serif-title text-xl text-[#4A3E3D] tracking-widest uppercase mb-4">
+        The Colors<br>of the Décor
+      </h3>
+
+      <p class="text-xs leading-relaxed text-[#7D6C65] font-light max-w-xs mb-10">
+        These are the colors that will bring our celebration to life. We can't wait to celebrate surrounded by this beautiful sunset palette.
+      </p>
+
+      <!-- 3x3 Color Grid -->
+      <div class="grid grid-cols-3 gap-6 max-w-xs mx-auto mb-6">
+        <div class="w-14 h-14 rounded-full bg-[#E89D27] shadow-sm justify-self-center"></div>
+        <div class="w-14 h-14 rounded-full bg-[#E06714] shadow-sm justify-self-center"></div>
+        <div class="w-14 h-14 rounded-full bg-[#EE734C] shadow-sm justify-self-center"></div>
+        <div class="w-14 h-14 rounded-full bg-[#E8758D] shadow-sm justify-self-center"></div>
+        <div class="w-14 h-14 rounded-full bg-[#9B82AA] shadow-sm justify-self-center"></div>
+        <div class="w-14 h-14 rounded-full bg-[#8E9B62] shadow-sm justify-self-center"></div>
+        <div class="w-14 h-14 rounded-full bg-[#E2D2C1] shadow-sm justify-self-center"></div>
+        <div class="w-14 h-14 rounded-full bg-[#8A5868] shadow-sm justify-self-center"></div>
+        <div class="w-14 h-14 rounded-full bg-[#FAF5EE] border border-[#E2D5C3] shadow-sm justify-self-center"></div>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 5. RSVP FORM (FORMSPREE INTEGRATED) -->
+    <!-- ========================================== -->
+    <section id="rsvp-section" class="py-16 px-6 bg-[#FAF5EE] border-b border-[#EFE8DE]">
+      <div class="text-center mb-8">
+        <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
+        <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-4">JC</h2>
+        <h3 class="font-serif-title text-xl tracking-widest text-[#4A3E3D] uppercase mb-3">Kindly RSVP</h3>
+        <p class="text-xs font-semibold text-[#8C7A6B] mb-2">Please confirm your attendance by 15 August 2026.</p>
+        <p class="text-[11px] text-[#8C7A6B] font-light max-w-xs mx-auto leading-relaxed">
+          As this is an intimate celebration, your confirmation will help us prepare a wonderful experience for every guest.
+        </p>
+      </div>
+
+      <!-- Formspree Integration Form -->
+      <form id="rsvpForm" action="https://formspree.io/f/xnpanebz" method="POST" class="space-y-4">
+        
+        <!-- Full Name -->
+        <div>
+          <input type="text" name="Full Name" required placeholder="👤  Full Name" 
+                 class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
+        </div>
+
+        <!-- Phone Number -->
+        <div>
+          <input type="tel" name="Phone Number" required placeholder="📞  Phone Number" 
+                 class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
+        </div>
+
+        <!-- Email Address -->
+        <div>
+          <input type="email" name="Email" required placeholder="✉️  Email Address" 
+                 class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
+        </div>
+
+        <!-- Will you be attending? -->
+        <div class="pt-2">
+          <label class="block text-[11px] font-semibold text-[#6E5E58] mb-2">Will you be attending?</label>
+          <div class="space-y-2">
+            <label class="flex items-center p-3 rounded-lg bg-[#F3EBE1] text-xs text-[#4A3E3D] cursor-pointer hover:bg-white transition">
+              <input type="radio" name="Attending" value="Yes, I'll be there" checked class="mr-3 accent-[#B89759]">
+              Yes, I'll be there
+            </label>
+            <label class="flex items-center p-3 rounded-lg bg-[#F3EBE1] text-xs text-[#4A3E3D] cursor-pointer hover:bg-white transition">
+              <input type="radio" name="Attending" value="Unfortunately, I can't make it" class="mr-3 accent-[#B89759]">
+              Unfortunately, I can't make it
+            </label>
+          </div>
+        </div>
+
+        <!-- Dietary Requirements -->
+        <div class="pt-2">
+          <label class="block text-[11px] font-semibold text-[#6E5E58] mb-1">Dietary Requirements (optional)</label>
+          <input type="text" name="Dietary Requirements" placeholder="Please let us know" 
+                 class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]" />
+        </div>
+
+        <!-- Additional Notes -->
+        <div class="pt-2">
+          <label class="block text-[11px] font-semibold text-[#6E5E58] mb-1">Additional Notes (optional)</label>
+          <textarea name="Additional Notes" rows="3" placeholder="Anything we should know?" 
+                    class="w-full bg-[#F3EBE1] text-xs px-4 py-3.5 rounded-lg border border-transparent focus:border-[#B89759] focus:bg-white outline-none text-[#4A3E3D] placeholder-[#A09085]"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submitBtn" class="w-full bg-[#B89759] hover:bg-[#A38246] text-white font-serif-title text-xs uppercase tracking-widest py-4 rounded-lg shadow-md transition mt-4 flex items-center justify-center">
+          <span>Confirm My RSVP</span>
+          <span class="ml-2">✦</span>
+        </button>
+
+      </form>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- 6. CONFIRMATION SCREEN -->
+    <!-- ========================================== -->
+    <section id="confirmation-screen" class="hidden min-h-screen py-20 px-6 bg-[#1A1412] text-white flex flex-col items-center justify-center text-center relative overflow-hidden">
+      <!-- Background Ambient Glow -->
+      <div class="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-transparent to-amber-950/40 pointer-events-none"></div>
+
+      <!-- Arch Card -->
+      <div class="relative z-10 w-full max-w-xs bg-[#FAF5EE] text-[#4A3E3D] rounded-t-full pt-16 pb-12 px-6 border border-[#E2D5C3] shadow-2xl flex flex-col items-center">
+        <span class="text-[#B89759] text-xs font-serif-title tracking-widest">✦ ✦</span>
+        <h2 class="font-serif-title text-3xl text-[#B89759] tracking-widest mt-1 mb-8">JC</h2>
+
+        <h3 class="font-serif-title text-2xl tracking-widest text-[#4A3E3D] uppercase mb-2">Thank You</h3>
+        <span class="text-[#B89759] text-lg mb-6">♥</span>
+
+        <p class="text-xs font-semibold text-[#6E5E58] mb-6">Your RSVP has been received.</p>
+
+        <p class="text-[11px] text-[#8C7A6B] font-light leading-relaxed max-w-[180px]">
+          Further information will be shared with confirmed guests closer to the celebration.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Unfold envelope when clicked
+    function openEnvelope() {
+      const envelope = document.getElementById('opening-screen');
+      envelope.classList.add('envelope-open');
+      setTimeout(() => {
+        envelope.style.display = 'none';
+      }, 800);
+    }
+
+    // Ajax Form Submission to smoothly display Screen 6 without leaving the page
+    const form = document.getElementById('rsvpForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const confirmationScreen = document.getElementById('confirmation-screen');
+    const rsvpSection = document.getElementById('rsvp-section');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Submitting...';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          // Hide form section and reveal Confirmation Screen
+          rsvpSection.style.display = 'none';
+          confirmationScreen.classList.remove('hidden');
+          confirmationScreen.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          alert('There was an error submitting your RSVP. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Confirm My RSVP ✦';
+        }
+      } catch (error) {
+        alert('Network error. Please check your connection.');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Confirm My RSVP ✦';
+      }
+    });
+  </script>
+</body>
+</html>
