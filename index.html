@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>An Invitation - Muyenga Private Dinner</title>
-  
-  <!-- Tailwind CSS -->
+  <title>Private Dinner — Kampala Forest Resort</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     html {
@@ -19,16 +17,15 @@
       scroll-behavior: smooth;
     }
 
-    body { 
-      font-family: 'Montserrat', sans-serif; 
-      background-color: #1A1714; 
-      color: #F5EFEB; 
+    body {
+      font-family: 'Karla', sans-serif;
+      background-color: #F3EDE1;
+      color: #4A4038;
     }
 
-    .font-serif-title { font-family: 'Cormorant Garamond', serif; }
-    .font-display { font-family: 'Playfair Display', serif; }
-    
-    /* Full portrait viewport slide section */
+    .font-display { font-family: 'Fraunces', serif; }
+    .font-display-italic { font-family: 'Fraunces', serif; font-style: italic; }
+
     .slide-section {
       scroll-snap-align: start;
       scroll-snap-stop: always;
@@ -36,7 +33,6 @@
       height: 100dvh;
     }
 
-    /* Scroll fade-in transition effect */
     .fade-in-element {
       opacity: 0;
       transform: translateY(24px);
@@ -48,230 +44,209 @@
       transform: translateY(0);
     }
 
-    /* Smooth transition for opening envelope */
     .envelope-wrapper { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease; }
     .envelope-open { transform: translateY(-100vh); opacity: 0; pointer-events: none; }
-
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #DFD1AF 0%, #B6A275 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
   </style>
 </head>
 <body class="overflow-x-hidden select-none">
 
   <!-- ========================================== -->
-  <!-- 1. OPENING SCREEN (ENVELOPE OVERLAY) -->
+  <!-- 1. OPENING SCREEN -->
   <!-- ========================================== -->
-  <div id="opening-screen" class="envelope-wrapper fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#25201C] p-4 text-center">
-    <div class="mb-6 flex flex-col items-center">
-      <span class="text-[#B6A275] text-xs font-serif-title tracking-widest uppercase">✦</span>
-      <h1 class="font-serif-title text-4xl text-[#B6A275] tracking-widest mt-1">D</h1>
+  <div id="opening-screen" class="envelope-wrapper fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#26221D] p-4 text-center">
+    <div class="mb-8 flex flex-col items-center">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <circle cx="17" cy="21" r="8" fill="#A79885"/>
+        <circle cx="11" cy="14" r="5.5" fill="#9C5A3C"/>
+        <circle cx="23" cy="13" r="6.5" fill="#6B5D4F"/>
+      </svg>
+      <p class="font-display italic text-[#D9CFC0] text-sm mt-3 tracking-wide">a private dinner</p>
+      <p class="text-[10px] uppercase tracking-[0.25em] text-[#8A7A64] mt-1">Kampala Forest Resort</p>
     </div>
 
-    <!-- Envelope Visual Card -->
-    <button onclick="openEnvelope()" class="group relative w-full max-w-sm bg-[#1A1714] rounded-xl shadow-2xl p-8 border border-[#3A332E] flex flex-col items-center justify-center cursor-pointer transition transform hover:scale-[1.02]">
-      <!-- Wax Seal Button -->
-      <div class="w-20 h-20 rounded-full bg-[#3A332E] border-4 border-[#5A4F46] flex items-center justify-center shadow-lg mb-6 group-hover:scale-105 transition">
-        <span class="font-serif-title text-2xl text-[#DFD1AF] tracking-widest">D</span>
+    <button onclick="openEnvelope()" class="group relative w-full max-w-sm bg-[#F3EDE1] rounded-2xl shadow-2xl p-10 border border-[#D9CFC0] flex flex-col items-center justify-center cursor-pointer transition transform hover:scale-[1.02]">
+      <div class="w-20 h-20 rounded-full bg-[#4F5D40] flex items-center justify-center shadow-lg mb-6 group-hover:scale-105 transition">
+        <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <path d="M15 4 C 15 12, 8 12, 8 20 C 8 24.4, 11.1 27.5, 15 27.5 C 18.9 27.5, 22 24.4, 22 20 C 22 12, 15 12, 15 4Z" fill="#F3EDE1"/>
+        </svg>
       </div>
-      <p class="font-serif-title text-xs uppercase tracking-[0.25em] gold-gradient-text">Tap To Open Invitation</p>
-      <span class="text-[#B6A275] mt-2 animate-bounce">↓</span>
+      <p class="font-display text-sm uppercase tracking-[0.2em] text-[#6B5D4F]">Tap to open</p>
+      <span class="text-[#6B5D4F] mt-2 animate-bounce">↓</span>
     </button>
   </div>
 
 
-  <!-- MAIN CONTENT CONTAINER -->
-  <main id="main-content" class="max-w-md mx-auto bg-[#1A1714] min-h-screen shadow-2xl border-x border-[#2A2420] relative overflow-hidden">
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="max-w-md mx-auto bg-[#F8F4EC] min-h-screen shadow-2xl border-x border-[#E5DCC9] relative overflow-hidden">
 
     <!-- ========================================== -->
-    <!-- 2. HERO SCREEN (background-image: image_0.png) -->
+    <!-- 2. HERO -->
     <!-- ========================================== -->
-    <section class="slide-section relative flex flex-col justify-between items-center text-center p-6 bg-cover bg-center text-white" 
-             style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.85)), url('./IMG_2818.CR2');">
-      
-      <!-- Top Monogram -->
-      <div class="pt-8 fade-in-element">
-        <span class="text-[#DFD1AF] text-xs font-serif-title tracking-widest">✦</span>
-        <h2 class="font-serif-title text-3xl tracking-widest text-[#DFD1AF]">D</h2>
+    <section class="slide-section relative flex flex-col justify-between items-center text-center p-6 bg-cover bg-center text-white"
+             style="background-image: linear-gradient(to bottom, rgba(10,7,4,0.35), rgba(10,7,4,0.85)), url('./forest-dinner.jpg');">
+
+      <div class="pt-10 fade-in-element">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" class="mx-auto opacity-90">
+          <circle cx="13" cy="16" r="6" fill="#E3B564"/>
+          <circle cx="8" cy="10" r="4" fill="#E3B564"/>
+          <circle cx="18" cy="9" r="5" fill="#E3B564"/>
+        </svg>
       </div>
 
-      <!-- Hero Text -->
-      <div class="mb-12 fade-in-element">
-        <p class="text-xs uppercase tracking-[0.3em] text-[#DFD1AF] mb-3">You're Sincerely Invited</p>
-        <h1 class="font-serif-title text-3xl md:text-4xl tracking-wider mb-3 leading-tight">Muyenga<br>Private Dinner</h1>
-        
-        <div class="mt-8 inline-block border-y border-[#DFD1AF]/40 py-2.5 px-6">
-          <p class="font-serif-title text-sm tracking-widest gold-gradient-text">5 SEPTEMBER 2026 &nbsp;✦&nbsp; 4 PM</p>
+      <div class="mb-8 fade-in-element">
+        <p class="text-xs uppercase tracking-[0.3em] text-[#E3B564] mb-3">You're invited to</p>
+        <h1 class="font-display italic text-4xl md:text-5xl leading-tight mb-3">A Private Dinner</h1>
+        <p class="text-sm font-light text-gray-200 tracking-wide leading-relaxed max-w-[240px] mx-auto">
+          in the heart of Muyenga's Forest
+        </p>
+        <p class="text-xs font-light text-[#E3B564] tracking-[0.2em] uppercase mt-4">Hosted by Kampala Forest Resort</p>
+        <div class="mt-7 flex items-center justify-center gap-4">
+          <div class="border-y border-[#E3B564]/40 py-2 px-5">
+            <p class="font-display text-sm tracking-widest text-[#F0DDB8]">17 SEPT</p>
+          </div>
+          <div class="border-y border-[#E3B564]/40 py-2 px-5">
+            <p class="font-display text-sm tracking-widest text-[#F0DDB8]">4:00 PM</p>
+          </div>
         </div>
       </div>
 
-      <!-- Scroll Indicator -->
       <div class="pb-6">
-        <p class="text-[10px] uppercase tracking-[0.3em] text-[#DFD1AF]/70">Scroll</p>
-        <span class="text-xs text-[#DFD1AF]/70">↓</span>
+        <p class="text-[10px] uppercase tracking-[0.3em] text-gray-300">Scroll</p>
+        <span class="text-xs text-gray-300">↓</span>
       </div>
     </section>
 
 
     <!-- ========================================== -->
-    <!-- 3. WELCOMING WORDS -->
+    <!-- 3. WELCOME WORDS -->
     <!-- ========================================== -->
-    <section class="slide-section relative py-12 px-8 text-center bg-[#211E1A] border-b border-[#2A2420] flex flex-col items-center justify-center overflow-hidden">
-      
-      <!-- ========== TOP-RIGHT FLORAL CLUSTER (matches photo theme) ========== -->
-      <svg class="absolute top-0 right-0 w-52 h-52 opacity-20 pointer-events-none text-[#5A4F46]" viewBox="0 0 220 220" fill="none">
-        <g transform="translate(145,35)">
-          <circle cx="0" cy="0" r="18" fill="currentColor"/>
-          <circle cx="-12" cy="-8" r="11" fill="currentColor"/>
-          <circle cx="12" cy="-9" r="12" fill="currentColor"/>
-          <circle cx="0" cy="0" r="6" fill="#1A1714"/>
-        </g>
-        <path d="M160 50 Q 130 90 100 160" stroke="currentColor" stroke-width="2" fill="none"/>
-        <path d="M145 70 Q 120 100 95 145" stroke="currentColor" stroke-width="1.5" fill="none"/>
-      </svg>
+    <section class="slide-section relative py-12 px-8 text-center bg-[#F8F4EC] border-b border-[#E5DCC9] flex flex-col items-center justify-center overflow-hidden">
 
-      <!-- ========== BOTTOM-LEFT FLORAL CLUSTER ========== -->
-      <svg class="absolute bottom-0 left-0 w-56 h-56 opacity-20 pointer-events-none text-[#5A4F46]" viewBox="0 0 220 220" fill="none">
-        <g transform="translate(45,165)">
-          <circle cx="0" cy="0" r="20" fill="currentColor"/>
-          <circle cx="-14" cy="-9" r="12" fill="currentColor"/>
-          <circle cx="13" cy="-10" r="13" fill="currentColor"/>
-          <circle cx="0" cy="0" r="7" fill="#1A1714"/>
-        </g>
-        <path d="M50 160 Q 80 110 130 70" stroke="currentColor" stroke-width="2.5" fill="none"/>
-        <path d="M40 145 Q 70 100 110 60" stroke="currentColor" stroke-width="1.8" fill="none"/>
+      <svg class="absolute top-0 right-0 w-40 h-56 opacity-40 pointer-events-none" viewBox="0 0 160 220" fill="none">
+        <path d="M150 10 Q 100 60 90 140 Q 85 180 60 210" stroke="#8A7A64" stroke-width="2" fill="none"/>
+        <path d="M135 30 Q 105 70 100 130" stroke="#4F5D40" stroke-width="1.6" fill="none"/>
+        <ellipse cx="110" cy="60" rx="10" ry="4" fill="#4F5D40" transform="rotate(-35 110 60)"/>
+        <ellipse cx="100" cy="95" rx="9" ry="3.5" fill="#6B5D4F" transform="rotate(-20 100 95)"/>
+        <circle cx="130" cy="35" r="7" fill="#9C5A3C"/>
       </svg>
 
       <div class="fade-in-element flex flex-col items-center z-10 relative">
-        <span class="text-[#B6A275] text-xs font-serif-title tracking-widest">✦</span>
-        <h2 class="font-serif-title text-3xl gold-gradient-text tracking-widest mt-1 mb-8">D</h2>
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" class="mb-4">
+          <circle cx="13" cy="16" r="6" fill="#A79885"/>
+          <circle cx="8" cy="10" r="4" fill="#9C5A3C"/>
+          <circle cx="18" cy="9" r="5" fill="#6B5D4F"/>
+        </svg>
 
-        <p class="text-[13px] leading-relaxed text-[#DFD1AF] font-light max-w-sm mb-6 font-display italic">
-          Join us for a private dinner in the heart of Muyenga’s Forest.
+        <h3 class="font-display italic text-3xl text-[#4A4038] mb-6 leading-snug">Join us for a private dinner<br>in the heart of Muyenga's Forest</h3>
+
+        <p class="text-sm leading-relaxed text-[#6B5D4F] font-light max-w-xs mb-4">
+          No agenda beyond good food, good company, and a moment to celebrate life itself.
         </p>
 
-        <p class="text-[13px] leading-relaxed text-[#DFD1AF] font-light max-w-sm mb-6 font-display italic">
-          No agenda beyond good food, good company and a moment to celebrate life itself.
+        <p class="font-display italic text-xl text-[#4F5D40] mt-2">
+          Come as you are.<br>We'll take care of the rest.
         </p>
-
-        <p class="text-[13px] leading-relaxed text-[#DFD1AF] font-light max-w-sm mb-8 font-display italic">
-          Come as you are. We'll take care of the rest.
-        </p>
-
-        <div class="mt-1">
-          <span class="text-xs text-[#DFD1AF]">🍷</span>
-        </div>
       </div>
     </section>
 
 
     <!-- ========================================== -->
-    <!-- 4. DRESS CODE & PALETTE -->
+    <!-- 4. DETAILS: DRESS CODE, VENUE, TIME -->
     <!-- ========================================== -->
-    <section class="slide-section relative py-10 px-6 text-center bg-[#1A1714] border-b border-[#2A2420] flex flex-col items-center justify-center overflow-hidden">
-      
+    <section class="slide-section relative py-10 px-6 text-center bg-[#F3EDE1] border-b border-[#E5DCC9] flex flex-col items-center justify-center overflow-hidden">
+
+      <svg class="absolute bottom-0 left-0 w-40 h-40 opacity-35 pointer-events-none" viewBox="0 0 160 160" fill="none">
+        <path d="M10 155 Q 60 120 80 60" stroke="#8A7A64" stroke-width="2" fill="none"/>
+        <ellipse cx="55" cy="95" rx="9" ry="3.5" fill="#4F5D40" transform="rotate(35 55 95)"/>
+        <circle cx="80" cy="55" r="6" fill="#9C5A3C"/>
+      </svg>
+
       <div class="fade-in-element flex flex-col items-center w-full z-10 relative">
-        <span class="text-[#B6A275] text-xs font-serif-title tracking-widest">✦</span>
-        <h2 class="font-serif-title text-2xl gold-gradient-text tracking-widest mt-1 mb-6">D</h2>
+        <p class="font-display italic text-lg text-[#9C5A3C] mb-1">Thursday, 17th September</p>
+        <div class="w-10 h-px bg-[#D9CFC0] mb-6"></div>
 
-        <h3 class="font-serif-title text-base gold-gradient-text tracking-widest uppercase mb-3">
-          DRESS CODE
-        </h3>
+        <h3 class="font-display text-lg text-[#4A4038] tracking-wide mb-1">Dress code</h3>
+        <p class="font-display italic text-2xl text-[#6B5D4F] mb-5">Earthy stones</p>
 
-        <p class="text-[11px] leading-relaxed text-[#DFD1AF]/80 font-light max-w-xs mb-8">
-          <span class="font-semibold tracking-wider block mb-1.5 text-[#DFD1AF] font-display italic text-sm">EARTHY STONES</span>
-          For this intimate gathering, we request attire inspired by natural earth tones. Please find below a color palette to guide your look.
-        </p>
-
-        <!-- Earthy Stone Palette Grid -->
-        <div class="grid grid-cols-4 gap-3.5 max-w-xs mx-auto">
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#1A1714] shadow-sm border border-[#5A4F46]" title="Obsidian"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#3A332E] shadow-sm border border-[#5A4F46]" title="Burnt Umber"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#5A4F46] shadow-sm border border-[#5A4F46]" title="Taupe Stone"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#8E7F73] shadow-sm border border-[#5A4F46]" title="Clay"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#B6A275] shadow-sm border border-[#5A4F46]" title="Sandstone"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#DFD1AF] shadow-sm border border-[#5A4F46]" title="Travertine"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#8E7F73] shadow-sm border border-[#5A4F46]" title="Slate Grey"></div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="w-10 h-10 rounded-full bg-[#5A4F46] shadow-sm border border-[#5A4F46]" title="Concrete"></div>
-          </div>
+        <div class="grid grid-cols-3 gap-4 max-w-[220px] mx-auto mb-10">
+          <div class="w-12 h-12 rounded-full bg-[#26221D] shadow-sm border border-black/10" title="Charcoal"></div>
+          <div class="w-12 h-12 rounded-full bg-[#6B5D4F] shadow-sm border border-black/10" title="Ash brown"></div>
+          <div class="w-12 h-12 rounded-full bg-[#A79885] shadow-sm border border-black/10" title="Warm stone"></div>
+          <div class="w-12 h-12 rounded-full bg-[#9C5A3C] shadow-sm border border-black/10" title="Clay"></div>
+          <div class="w-12 h-12 rounded-full bg-[#4F5D40] shadow-sm border border-black/10" title="Moss"></div>
+          <div class="w-12 h-12 rounded-full bg-[#D9CFC0] shadow-sm border border-black/10" title="Sand"></div>
         </div>
+
+        <div class="w-16 h-px bg-[#D9CFC0] mb-8"></div>
+
+        <h3 class="font-display text-lg text-[#4A4038] tracking-wide mb-3">Where to find us</h3>
+        <p class="text-sm leading-relaxed text-[#6B5D4F] font-light max-w-[240px] mb-1">
+          Plot 7141, Block 244, House 28<br>Muyenga Tank Hill Road, Kampala
+        </p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Muyenga+Tank+Hill+Road+Kampala" target="_blank"
+           class="font-display italic text-sm text-[#4F5D40] underline underline-offset-4 mt-2 mb-5 inline-block">Get directions</a>
+
+        <p class="text-sm text-[#6B5D4F]">
+          <a href="tel:+256740019799" class="font-medium">0740 019 799</a>
+        </p>
       </div>
     </section>
 
 
     <!-- ========================================== -->
-    <!-- 5. DETAILS & RSVP FORM -->
+    <!-- 5. RSVP FORM -->
     <!-- ========================================== -->
-    <section id="rsvp-section" class="slide-section relative py-8 px-6 bg-[#211E1A] border-b border-[#2A2420] flex flex-col justify-center overflow-y-auto">
-      
+    <section id="rsvp-section" class="slide-section relative py-8 px-6 bg-[#F8F4EC] border-b border-[#E5DCC9] flex flex-col justify-center overflow-y-auto">
+
+      <svg class="absolute top-0 right-0 w-28 h-28 opacity-30 pointer-events-none" viewBox="0 0 120 120" fill="none">
+        <circle cx="95" cy="25" r="8" fill="#9C5A3C"/>
+        <path d="M95 33 Q 70 55 55 90" stroke="#8A7A64" stroke-width="2" fill="none"/>
+      </svg>
+
       <div class="fade-in-element relative z-10">
-        <div class="text-center mb-6">
-          <span class="text-[#B6A275] text-xs font-serif-title tracking-widest">✦</span>
-          <h2 class="font-serif-title text-2xl gold-gradient-text tracking-widest mt-1">D</h2>
-          <h3 class="font-serif-title text-lg tracking-widest text-[#DFD1AF] uppercase my-1.5">Kindly RSVP</h3>
-          <p class="text-[11px] font-semibold text-[#DFD1AF]/80 max-w-[280px] mx-auto">Please confirm your dinner reservation by 15 August 2026.</p>
+        <div class="text-center mb-5">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" class="mx-auto mb-2">
+            <circle cx="11" cy="13" r="5" fill="#A79885"/>
+            <circle cx="7" cy="8" r="3.3" fill="#9C5A3C"/>
+            <circle cx="15" cy="7.5" r="4" fill="#6B5D4F"/>
+          </svg>
+          <h3 class="font-display italic text-2xl text-[#4A4038]">Kindly reserve your seat</h3>
+          <p class="text-xs text-[#8A7A64] mt-1">Let us know you're coming, and how we can make the evening comfortable for you.</p>
         </div>
 
-        <form id="rsvpForm" action="https://formspree.io/f/xnpanebz" method="POST" class="space-y-3">
-          
-          <!-- Venue Details Hidden Input -->
-          <input type="hidden" name="Venue" value="Plot 7141, Block 244, House 28, Muyenga Tank Hill Road, Kampala" />
-          <input type="hidden" name="Contact" value="☎️0740 019799" />
+        <form id="rsvpForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-3">
 
           <div>
-            <input type="text" name="Full Name" required placeholder="👤  Guest's Full Name" 
-                   class="w-full bg-[#1A1714] text-xs px-4 py-3 rounded-lg border border-[#3A332E] focus:border-[#B6A275] focus:bg-white outline-none text-[#1A1714] placeholder-[#5A4F46] focus:text-[#1A1714]" />
+            <input type="text" name="Full Name" required placeholder="Full Name"
+                   class="w-full bg-[#EFE7D7] text-sm px-4 py-3 rounded-lg border border-transparent focus:border-[#4F5D40] focus:bg-white outline-none text-[#4A4038] placeholder-[#9A8C7B]" />
           </div>
 
           <div>
-            <input type="tel" name="Phone Number" required placeholder="📞  Contact Number" 
-                   class="w-full bg-[#1A1714] text-xs px-4 py-3 rounded-lg border border-[#3A332E] focus:border-[#B6A275] focus:bg-white outline-none text-[#1A1714] placeholder-[#5A4F46] focus:text-[#1A1714]" />
+            <input type="tel" name="Phone Number" required placeholder="Phone Number"
+                   class="w-full bg-[#EFE7D7] text-sm px-4 py-3 rounded-lg border border-transparent focus:border-[#4F5D40] focus:bg-white outline-none text-[#4A4038] placeholder-[#9A8C7B]" />
           </div>
 
           <div>
-            <input type="email" name="Email" required placeholder="✉️  Email Address" 
-                   class="w-full bg-[#1A1714] text-xs px-4 py-3 rounded-lg border border-[#3A332E] focus:border-[#B6A275] focus:bg-white outline-none text-[#1A1714] placeholder-[#5A4F46] focus:text-[#1A1714]" />
+            <input type="email" name="Email" required placeholder="Email Address"
+                   class="w-full bg-[#EFE7D7] text-sm px-4 py-3 rounded-lg border border-transparent focus:border-[#4F5D40] focus:bg-white outline-none text-[#4A4038] placeholder-[#9A8C7B]" />
           </div>
 
           <div>
-            <label class="block text-[11px] font-semibold text-[#DFD1AF] mb-1.5">Confirmation of Attendance</label>
+            <label class="block text-xs font-medium text-[#6B5D4F] mb-1.5">Will you be joining us?</label>
             <div class="space-y-1.5">
-              <label class="flex items-center p-2.5 rounded-lg bg-[#1A1714] text-xs text-[#DFD1AF] border border-[#3A332E] cursor-pointer hover:bg-white/5 transition">
-                <input type="radio" name="Attending" value="Yes, I will attend" checked class="mr-3 accent-[#B6A275]">
-                Yes, I will attend
+              <label class="flex items-center p-2.5 rounded-lg bg-[#EFE7D7] text-sm text-[#4A4038] cursor-pointer hover:bg-white transition">
+                <input type="radio" name="Attending" value="Yes, I'll be there" checked class="mr-3 accent-[#4F5D40]">
+                Yes, I'll be there
               </label>
-              <label class="flex items-center p-2.5 rounded-lg bg-[#1A1714] text-xs text-[#DFD1AF]/70 border border-[#3A332E] cursor-pointer hover:bg-white/5 transition">
-                <input type="radio" name="Attending" value="Regretfully, I cannot make it" class="mr-3 accent-[#B6A275]">
-                Regretfully, I cannot make it
+              <label class="flex items-center p-2.5 rounded-lg bg-[#EFE7D7] text-sm text-[#4A4038] cursor-pointer hover:bg-white transition">
+                <input type="radio" name="Attending" value="Unfortunately, I can't make it" class="mr-3 accent-[#4F5D40]">
+                Unfortunately, I can't make it
               </label>
             </div>
           </div>
 
-          <div>
-            <input type="text" name="Dietary Requirements" placeholder="Dietary Requirements (optional)" 
-                   class="w-full bg-[#1A1714] text-xs px-4 py-3 rounded-lg border border-[#3A332E] focus:border-[#B6A275] focus:bg-white outline-none text-[#1A1714] placeholder-[#5A4F46] focus:text-[#1A1714]" />
-          </div>
-
-          <button type="submit" id="submitBtn" class="w-full bg-[#B6A275] hover:bg-[#A38246] text-[#1A1714] font-serif-title text-xs uppercase tracking-widest py-3.5 rounded-lg shadow-md transition mt-2 flex items-center justify-center">
-            <span>Submit RSVP</span>
-            <span class="ml-2">✦</span>
+          <button type="submit" id="submitBtn" class="w-full bg-[#4F5D40] hover:bg-[#3F4B33] text-white font-display text-sm tracking-wide py-3.5 rounded-lg shadow-md transition mt-2">
+            Confirm My Seat
           </button>
 
         </form>
@@ -280,30 +255,32 @@
 
 
     <!-- ========================================== -->
-    <!-- 6. CONFIRMATION SCREEN -->
+    <!-- 6. CONFIRMATION -->
     <!-- ========================================== -->
-    <section id="confirmation-screen" class="hidden slide-section py-12 px-6 bg-[#0E0B09] text-[#DFD1AF] flex flex-col items-center justify-center text-center relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-transparent to-amber-950/40 pointer-events-none"></div>
+    <section id="confirmation-screen" class="hidden slide-section py-12 px-6 bg-[#26221D] text-white flex flex-col items-center justify-center text-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#4F5D40]/10 via-transparent to-[#26221D]/60 pointer-events-none"></div>
 
-      <div class="relative z-10 w-full max-w-sm bg-[#1A1714] text-[#DFD1AF] rounded-t-full pt-20 pb-16 px-6 border border-[#2A2420] shadow-2xl flex flex-col items-center">
-        <span class="text-[#B6A275] text-xs font-serif-title tracking-widest">✦</span>
-        <h2 class="font-serif-title text-3xl gold-gradient-text tracking-widest mt-1 mb-8">D</h2>
+      <div class="relative z-10 w-full max-w-xs bg-[#F8F4EC] text-[#4A4038] rounded-t-full pt-16 pb-12 px-6 border border-[#E5DCC9] shadow-2xl flex flex-col items-center">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" class="mb-6">
+          <circle cx="13" cy="16" r="6" fill="#A79885"/>
+          <circle cx="8" cy="10" r="4" fill="#9C5A3C"/>
+          <circle cx="18" cy="9" r="5" fill="#6B5D4F"/>
+        </svg>
 
-        <h3 class="font-serif-title text-2xl tracking-widest text-[#DFD1AF] uppercase mb-2">Thank You</h3>
-        <span class="text-[#B6A275] text-lg mb-8">♥</span>
+        <h3 class="font-display italic text-3xl text-[#4A4038] mb-2">Thank you</h3>
+        <div class="w-10 h-px bg-[#A79885] mb-6"></div>
 
-        <p class="text-sm font-semibold text-[#DFD1AF] mb-8 font-display italic">Your dinner reservation has been successfully registered.</p>
+        <p class="text-sm font-medium text-[#6B5D4F] mb-6">Your seat has been reserved.</p>
 
-        <div class="text-[11px] text-[#DFD1AF]/80 font-light leading-relaxed max-w-[280px] space-y-3 p-5 border border-[#3A332E] rounded-lg bg-[#211E1A]">
-          <p><strong class="gold-gradient-text">Venue:</strong> Plot 7141, Block 244, House 28, Muyenga Tank Hill Road, Kampala</p>
-          <p><strong class="gold-gradient-text">Contact:</strong> ☎️0740 019799</p>
-        </div>
+        <p class="text-xs text-[#8A7A64] font-light leading-relaxed max-w-[190px]">
+          We'll be in touch closer to the date. Until then — come as you are.
+        </p>
+        <p class="text-[11px] text-[#9C5A3C] tracking-[0.15em] uppercase mt-6">Kampala Forest Resort</p>
       </div>
     </section>
 
   </main>
 
-  <!-- Interactive JavaScript -->
   <script>
     function openEnvelope() {
       const envelope = document.getElementById('opening-screen');
@@ -314,11 +291,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-      };
+      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.2 };
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -357,14 +330,14 @@
           confirmationScreen.classList.remove('hidden');
           confirmationScreen.scrollIntoView({ behavior: 'smooth' });
         } else {
-          alert('There was an error submitting your RSVP. Please try again.');
+          alert('There was an error submitting your reservation. Please try again.');
           submitBtn.disabled = false;
-          submitBtn.innerText = 'Submit RSVP ✦';
+          submitBtn.innerText = 'Confirm My Seat';
         }
       } catch (error) {
         alert('Network error. Please check your connection.');
         submitBtn.disabled = false;
-        submitBtn.innerText = 'Submit RSVP ✦';
+        submitBtn.innerText = 'Confirm My Seat';
       }
     });
   </script>
