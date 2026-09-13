@@ -28,7 +28,6 @@
     .font-serif-title { font-family: 'Cormorant Garamond', serif; }
     .font-display { font-family: 'Playfair Display', serif; }
     
-    /* Full portrait viewport slide section */
     .slide-section {
       scroll-snap-align: start;
       scroll-snap-stop: always;
@@ -36,7 +35,6 @@
       height: 100dvh;
     }
 
-    /* Scroll fade-in transition effect */
     .fade-in-element {
       opacity: 0;
       transform: translateY(24px);
@@ -48,7 +46,6 @@
       transform: translateY(0);
     }
 
-    /* Smooth transition for opening envelope */
     .envelope-wrapper { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease; }
     .envelope-open { transform: translateY(-100vh); opacity: 0; pointer-events: none; }
 
@@ -61,18 +58,13 @@
 </head>
 <body class="overflow-x-hidden select-none">
 
-  <!-- ========================================== -->
-  <!-- 1. OPENING SCREEN (ENVELOPE OVERLAY) -->
-  <!-- ========================================== -->
   <div id="opening-screen" class="envelope-wrapper fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#25201C] p-4 text-center">
     <div class="mb-6 flex flex-col items-center">
       <span class="text-[#B6A275] text-xs font-serif-title tracking-widest uppercase">✦</span>
       <h1 class="font-serif-title text-4xl text-[#B6A275] tracking-widest mt-1">KFR</h1>
     </div>
 
-    <!-- Envelope Visual Card -->
     <button onclick="openEnvelope()" class="group relative w-full max-w-sm bg-[#1A1714] rounded-xl shadow-2xl p-8 border border-[#3A332E] flex flex-col items-center justify-center cursor-pointer transition transform hover:scale-[1.02]">
-      <!-- Wax Seal Button -->
       <div class="w-20 h-20 rounded-full bg-[#3A332E] border-4 border-[#5A4F46] flex items-center justify-center shadow-lg mb-6 group-hover:scale-105 transition">
         <span class="font-serif-title text-xl text-[#DFD1AF] tracking-widest">KFR</span>
       </div>
@@ -82,22 +74,16 @@
   </div>
 
 
-  <!-- MAIN CONTENT CONTAINER -->
   <main id="main-content" class="max-w-md mx-auto bg-[#1A1714] min-h-screen shadow-2xl border-x border-[#2A2420] relative overflow-hidden">
 
-    <!-- ========================================== -->
-    <!-- 2. HERO SCREEN WITH BACKGROUND IMAGE -->
-    <!-- ========================================== -->
     <section class="slide-section relative flex flex-col justify-between items-center text-center p-6 bg-cover bg-center text-white" 
-             style="background-image: linear-gradient(to bottom, rgba(15, 12, 10, 0.65), rgba(15, 12, 10, 0.9)), url('IMG_2818.CR2');">
+             style="background-image: linear-gradient(to bottom, rgba(15, 12, 10, 0.65), rgba(15, 12, 10, 0.9)), url('IMG_2818.jpg');">
       
-      <!-- Top Monogram -->
       <div class="pt-8 fade-in-element">
         <span class="text-[#DFD1AF] text-xs font-serif-title tracking-widest">✦</span>
         <h2 class="font-serif-title text-2xl tracking-widest text-[#DFD1AF]">KAMPALA FOREST RESORT</h2>
       </div>
 
-      <!-- Hero Text -->
       <div class="mb-12 fade-in-element">
         <p class="text-xs uppercase tracking-[0.3em] text-[#DFD1AF] mb-3">You're Sincerely Invited To</p>
         <h1 class="font-serif-title text-3xl md:text-4xl tracking-wider mb-3 leading-tight">A Private Dinner</h1>
@@ -108,7 +94,6 @@
         </div>
       </div>
 
-      <!-- Scroll Indicator -->
       <div class="pb-6">
         <p class="text-[10px] uppercase tracking-[0.3em] text-[#DFD1AF]/70">Scroll</p>
         <span class="text-xs text-[#DFD1AF]/70">↓</span>
@@ -116,12 +101,8 @@
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- 3. WELCOMING WORDS -->
-    <!-- ========================================== -->
     <section class="slide-section relative py-12 px-8 text-center bg-[#211E1A] border-b border-[#2A2420] flex flex-col items-center justify-center overflow-hidden">
       
-      <!-- Top Floral Accent -->
       <svg class="absolute top-0 right-0 w-52 h-52 opacity-20 pointer-events-none text-[#5A4F46]" viewBox="0 0 220 220" fill="none">
         <g transform="translate(145,35)">
           <circle cx="0" cy="0" r="18" fill="currentColor"/>
@@ -133,7 +114,6 @@
         <path d="M145 70 Q 120 100 95 145" stroke="currentColor" stroke-width="1.5" fill="none"/>
       </svg>
 
-      <!-- Bottom Floral Accent -->
       <svg class="absolute bottom-0 left-0 w-56 h-56 opacity-20 pointer-events-none text-[#5A4F46]" viewBox="0 0 220 220" fill="none">
         <g transform="translate(45,165)">
           <circle cx="0" cy="0" r="20" fill="currentColor"/>
@@ -150,7 +130,7 @@
         <h2 class="font-serif-title text-2xl gold-gradient-text tracking-widest mt-1 mb-8">KAMPALA FOREST RESORT</h2>
 
         <p class="text-[13px] leading-relaxed text-[#DFD1AF] font-light max-w-sm mb-6 font-display italic">
-          Join us for a private dinner in the heart of Muyenga’s Forest.
+          Join us for a private dinner in the heart of Muyenga's Forest.
         </p>
 
         <p class="text-[13px] leading-relaxed text-[#DFD1AF] font-light max-w-sm mb-6 font-display italic">
@@ -168,9 +148,6 @@
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- 4. DRESS CODE & PALETTE -->
-    <!-- ========================================== -->
     <section class="slide-section relative py-10 px-6 text-center bg-[#1A1714] border-b border-[#2A2420] flex flex-col items-center justify-center overflow-hidden">
       
       <div class="fade-in-element flex flex-col items-center w-full z-10 relative">
@@ -186,7 +163,6 @@
           For this intimate gathering, we request attire inspired by natural earth tones. Please find below a color palette to guide your look.
         </p>
 
-        <!-- Earthy Stone Palette Grid -->
         <div class="grid grid-cols-4 gap-3.5 max-w-xs mx-auto">
           <div class="flex flex-col items-center">
             <div class="w-10 h-10 rounded-full bg-[#1A1714] shadow-sm border border-[#5A4F46]" title="Obsidian"></div>
@@ -217,9 +193,6 @@
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- 5. DETAILS & RSVP FORM -->
-    <!-- ========================================== -->
     <section id="rsvp-section" class="slide-section relative py-8 px-6 bg-[#211E1A] border-b border-[#2A2420] flex flex-col justify-center overflow-y-auto">
       
       <div class="fade-in-element relative z-10">
@@ -230,9 +203,8 @@
           <p class="text-[11px] font-semibold text-[#DFD1AF]/80 max-w-[280px] mx-auto">Please confirm your dinner reservation below.</p>
         </div>
 
-        <form id="rsvpForm" action="https://formspree.io/f/xnpanebz" method="POST" class="space-y-4">
+        <form id="rsvpForm" action="https://formspree.io/f/xrpgwaro" method="POST" class="space-y-4">
           
-          <!-- Venue & Host Details Hidden Inputs -->
           <input type="hidden" name="Host" value="Kampala Forest Resort" />
           <input type="hidden" name="Date" value="Thursday 17th September" />
           <input type="hidden" name="Venue" value="Plot 7141, Block 244, House 28, Muyenga Tank Hill Road, Kampala" />
@@ -277,9 +249,6 @@
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- 6. CONFIRMATION SCREEN -->
-    <!-- ========================================== -->
     <section id="confirmation-screen" class="hidden slide-section py-12 px-6 bg-[#0E0B09] text-[#DFD1AF] flex flex-col items-center justify-center text-center relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-amber-950/20 via-transparent to-amber-950/40 pointer-events-none"></div>
 
@@ -303,7 +272,6 @@
 
   </main>
 
-  <!-- Interactive JavaScript -->
   <script>
     function openEnvelope() {
       const envelope = document.getElementById('opening-screen');
